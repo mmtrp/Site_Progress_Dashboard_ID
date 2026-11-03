@@ -35,7 +35,7 @@ select.status-sel.s-Delayed{background:#ffe4e1;color:#991b1b;border-color:#fca5a
 select.status-sel.s-Rejected{background:#fce7f3;color:#9d174d;border-color:#f9a8d4}
 select.status-sel.s-PendingFeedback{background:#fff7e6;color:#92400e;border-color:#fcd34d}
 select.status-sel.s-NotStarted{background:#f1f5f9;color:#475569;border-color:#cbd5e1}
-.monthly-summary-block{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}.monthly-summary-block .card-head{padding:12px 15px;background:linear-gradient(100deg,#082858,#0b468d);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:8px}.monthly-summary-block .card-head h3{font-size:13px;margin:0;color:#fff;text-transform:uppercase;letter-spacing:.35px}.monthly-summary-block .card-head .month-label{font-size:12px;color:#dceaff;font-weight:700}.monthly-kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0}.monthly-kpi{padding:20px 24px;display:flex;flex-direction:column;gap:6px;border-right:1px solid var(--line)}.monthly-kpi:last-child{border-right:0}.monthly-kpi .mk-label{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:#51627c;font-weight:800}.monthly-kpi .mk-num{font-size:38px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1}.monthly-kpi .mk-sub{font-size:12px;color:var(--muted)}.monthly-kpi .mk-bar{height:6px;background:#e9eef6;border-radius:8px;overflow:hidden;margin-top:8px}.monthly-kpi .mk-bar span{display:block;height:100%;border-radius:8px;transition:width .4s}.mk-planned .mk-num{color:#0868d7}.mk-actual .mk-num{color:#299b42}
+.monthly-block{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:14px}.monthly-block-head{grid-column:1/-1;padding:11px 15px;background:linear-gradient(100deg,#082858,#0b468d);display:flex;justify-content:space-between;align-items:center}.monthly-block-head h3{font-size:13px;margin:0;color:#fff;text-transform:uppercase;letter-spacing:.35px}.monthly-block-head span{font-size:12px;color:#dceaff;font-weight:700}.monthly-kpi{background:var(--card);padding:18px 22px;border-right:1px solid var(--line)}.monthly-kpi:last-child{border-right:0}.monthly-kpi .mk-label{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:#51627c;font-weight:800;margin-bottom:6px}.monthly-kpi .mk-num{font-size:36px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1}.monthly-kpi .mk-sub{font-size:11px;color:var(--muted);margin-top:4px}.monthly-kpi .mk-bar{height:5px;background:#e9eef6;border-radius:8px;overflow:hidden;margin-top:10px}.monthly-kpi .mk-bar span{display:block;height:100%;border-radius:8px}.mk-planned .mk-num{color:#0868d7}.mk-actual .mk-num{color:#299b42}
 @media(max-width:1100px){.metrics{grid-template-columns:repeat(4,minmax(0,1fr))}.grid2{grid-template-columns:1fr}.editable-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.wrap{padding:12px}.topbar{padding:15px}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.editable-grid{grid-template-columns:1fr}.progress-layout{gap:14px;flex-wrap:wrap}.donut{width:140px;height:140px}.donut:before{width:98px;height:98px}.highlights{grid-template-columns:1fr}.heading{text-align:left}.zte{font-size:25px}}
 @media print{.toolbar,.btn,.tabs,.plan-toolbar,.remove,.footer{display:none!important}.panel{display:block!important;page-break-after:always}.topbar{background:#fff;color:#111;border-bottom:2px solid #0b376f}.heading p{color:#333}.zte{color:#0b6acb}.wrap{max-width:none;padding:8px}.card,.metric{box-shadow:none;break-inside:avoid}}
@@ -51,7 +51,7 @@ select.status-sel.s-NotStarted{background:#f1f5f9;color:#475569;border-color:#cb
 <div class="card" style="margin-top:14px"><div class="card-head"><h3>Edit Expansion Site Counts</h3><span class="note">Counts are entered manually; all percentages and visuals recalculate.</span></div><div class="editable-grid" id="fields-expansion"></div></div>
 </section>
 <section class="panel" id="panel-newsites"><div class="section-title"><div><h2>New Sites Progress</h2><p>Site pipeline funnel · percentage calculations use the total site count.</p></div></div><div class="metrics" id="metrics-newsites"></div><div class="grid2"><article class="card"><div class="card-head"><h3>New Site Pipeline Funnel</h3></div><div class="table-wrap"><table><thead><tr><th>Stage</th><th class="num">Site Count</th><th class="num">% of Total Count</th></tr></thead><tbody id="summary-newsites"></tbody></table></div></article><article class="card"><div class="card-head"><h3>Progress at a Glance</h3></div><div class="card-body"><div class="progress-layout" id="progress-newsites"></div></div></article></div><article class="card"><div class="card-head"><h3>Key Highlights</h3></div><div class="card-body"><div class="highlights" id="highlights-newsites"></div></div></article><div class="card" style="margin-top:14px"><div class="card-head"><h3>Edit New Site Counts</h3><span class="note">All related summaries update automatically.</span></div><div class="editable-grid" id="fields-newsites"></div></div></section>
-<section class="panel" id="panel-ne25"><div class="section-title"><div><h2>NE25 MW Implementation Update</h2><p>Overview of project progress · site counts, percentages and implementation pipeline.</p></div></div><div id="ne25-monthly-summary"></div><div class="metrics" id="metrics-ne25"></div><div class="grid2"><article class="card"><div class="card-head"><h3>Implementation Pipeline Funnel</h3></div><div class="table-wrap"><table><thead><tr><th>Stage</th><th class="num">Site Count</th><th class="num">% of Total Scope</th></tr></thead><tbody id="summary-ne25"></tbody></table></div></article><article class="card"><div class="card-head"><h3>Progress at a Glance</h3></div><div class="card-body"><div class="progress-layout" id="progress-ne25"></div></div></article></div><article class="card"><div class="card-head"><h3>Key Highlights</h3></div><div class="card-body"><div class="highlights" id="highlights-ne25"></div></div></article><div class="card" style="margin-top:14px"><div class="card-head"><h3>Edit NE25 MW Project Counts</h3><span class="note">Update counts to refresh the dashboard.</span></div><div class="editable-grid" id="fields-ne25"></div></div></section>
+<section class="panel" id="panel-ne25"><div class="section-title"><div><h2>NE25 MW Implementation Update</h2><p>Overview of project progress · site counts, percentages and implementation pipeline.</p></div></div><div id="ne25-monthly-block"></div><div class="metrics" id="metrics-ne25"></div><div class="grid2"><article class="card"><div class="card-head"><h3>Implementation Pipeline Funnel</h3></div><div class="table-wrap"><table><thead><tr><th>Stage</th><th class="num">Site Count</th><th class="num">% of Total Scope</th></tr></thead><tbody id="summary-ne25"></tbody></table></div></article><article class="card"><div class="card-head"><h3>Progress at a Glance</h3></div><div class="card-body"><div class="progress-layout" id="progress-ne25"></div></div></article></div><article class="card"><div class="card-head"><h3>Key Highlights</h3></div><div class="card-body"><div class="highlights" id="highlights-ne25"></div></div></article><div class="card" style="margin-top:14px"><div class="card-head"><h3>Edit NE25 MW Project Counts</h3><span class="note">Update counts to refresh the dashboard.</span></div><div class="editable-grid" id="fields-ne25"></div></div></section>
 <section class="panel" id="panel-weekly"><div class="section-title"><div><h2>Weekly Plan & Actuals</h2><p>Separate weekly execution trackers for each workstream.</p></div></div><div class="locked-banner" id="weeklyLockBanner">Editing is locked. Select <b>Unlock Editing</b> and enter the dashboard password to add or update weekly plans.</div>
 <div id="weekly-workstreams" class="weekly-workstreams"></div></section>
 <div class="footer">Site Progress Control Dashboard · <span style="color:#299b42;font-weight:700">🟢 Live Sync Active</span> — Shared database: edits saved by any team member appear for everyone instantly.</div>
@@ -95,7 +95,7 @@ const defaultData={
   newsites:{title:'New Sites Progress',total:22,stages:[['Total Site Count',22,'#1976d2'],['RFI',17,'#0755c9'],['TI Completed',17,'#2e9b36'],['Commissioned',17,'#148a73'],['PRE PAT Submitted',17,'#ff7900'],['PAT Approved',14,'#299b42'],['Rejected',3,'#d7192d'],['Mobitel FB Pending',0,'#ff7900']]},
   ne25:{title:'NE25 MW Implementation Update',total:129,stages:[['Total Project Scope',129,'#0755c9'],['Material Requested from Mobitel',108,'#1976d2'],['Material Collected from Mobitel WH',92,'#078b91'],['Installation Completed',54,'#ff7900'],['Traffic Transferred',45,'#299b42'],['PAT Submitted',40,'#ff7900'],['PAT Approved',11,'#299b42']]},
   weekly:{expansion:[{week:'W44 Plan',date:'',siteId:'',activity:'',status:'Planned',progress:0,remarks:''}],newsites:[{week:'W44 Plan',date:'',siteId:'',activity:'',status:'Planned',progress:0,remarks:''}],ne25:[{week:'W44 Plan',date:'',siteId:'',activity:'',status:'Planned',progress:0,remarks:''}]},
-  ne25MonthlyTotals:{}
+  ne25monthly:{planned:0,actual:0}
 };
 
 let data=structuredClone(defaultData),unlocked=false;
@@ -113,10 +113,7 @@ onValue(dbRef,(snapshot)=>{
       if(!parsed.weekly||Array.isArray(parsed.weekly))parsed.weekly=structuredClone(defaultData.weekly);
       for(const k of ['expansion','newsites','ne25'])
         if(!Array.isArray(parsed.weekly[k]))parsed.weekly[k]=structuredClone(defaultData.weekly[k]);
-      if(!parsed.ne25MonthlyTotals||typeof parsed.ne25MonthlyTotals!=='object'||Array.isArray(parsed.ne25MonthlyTotals))
-        parsed.ne25MonthlyTotals={};
-      // seed _prevStatus for change-tracking (not persisted)
-      (parsed.weekly.ne25||[]).forEach(r=>{r._prevStatus=r.status;});
+      if(!parsed.ne25monthly||typeof parsed.ne25monthly!=='object')parsed.ne25monthly={planned:0,actual:0};
       data=parsed;
       renderAll();
     }catch(e){console.error('Firebase parse error',e);}
@@ -125,13 +122,10 @@ onValue(dbRef,(snapshot)=>{
 });
 
 function saveData(){
-  // strip runtime-only _prevStatus before persisting
-  const savePayload=JSON.parse(JSON.stringify(data,(_k,v)=>_k==='_prevStatus'?undefined:v));
-  set(dbRef,savePayload)
+  set(dbRef,data)
     .then(()=>{const b=document.getElementById('saveBtn');b.textContent='Saved ✓';setTimeout(()=>b.textContent='Save Changes',1500);})
     .catch(err=>alert('Save failed: '+err.message));
 }
-
 
 // ── Helpers ───────────────────────────────────────────────────────────────
 function pct(n,total){return total?n/total*100:0}
@@ -146,39 +140,9 @@ function renderMetrics(key){const d=data[key],st=stageData(key);document.getElem
 function renderSummary(key){const d=data[key];document.getElementById('summary-'+key).innerHTML=stageData(key).map(s=>`<tr><td><span class="stage-name">${s.name}</span><div class="mini-bar"><span style="width:${Math.min(100,s.pct)}%;background:${s.color}"></span></div></td><td class="num"><b>${fmt(s.count)}</b></td><td class="num">${percent(s.count,d.total)}</td></tr>`).join('')}
 function renderProgress(key){const d=data[key],st=stageData(key),approved=st.find(s=>s.name==='PAT Approved')||st[st.length-1],rejected=st.find(s=>s.name==='Rejected'),pending=st.find(s=>s.name.toLowerCase().includes('pending'));let parts=key==='ne25'?[{name:'PAT Approved',count:approved.count,color:'#299b42'},{name:'Ongoing',count:Math.max(0,d.total-approved.count),color:'#1685e8'}]:[{name:approved.name,count:approved.count,color:'#299b42'},{name:pending?.name||'In Progress',count:pending?.count??Math.max(0,d.total-approved.count-(rejected?.count||0)),color:'#ff7900'},{name:rejected?.name||'Remaining',count:rejected?.count??Math.max(0,d.total-approved.count-(pending?.count||0)),color:'#d7192d'}];let total=parts.reduce((a,b)=>a+b.count,0)||1,angle=0,grad=[];parts.forEach(p=>{const next=angle+p.count/total*360;grad.push(`${p.color} ${angle}deg ${next}deg`);angle=next});const pctApproved=percent(approved.count,d.total);document.getElementById('progress-'+key).innerHTML=`<div class="donut" style="background:conic-gradient(${grad.join(',')})"><div class="donut-center"><strong>${pctApproved}</strong><span>PAT Approved<br>of Total Scope</span></div></div><div class="legend">${parts.map(p=>`<div class="legend-row"><i class="swatch" style="background:${p.color}"></i><span>${p.name}</span><strong>${fmt(p.count)} <small style="color:#64748b;font-weight:500">(${percent(p.count,d.total)})</small></strong></div>`).join('')}</div>`}
 function renderHighlights(key){const d=data[key],st=stageData(key);let texts;if(key==='ne25'){texts=st.map(s=>({icon:s.i===0?'◉':s.i===1?'▤':s.i===2?'⬡':s.i===3?'⚒':s.i===4?'⇄':s.i===5?'➤':'👍',text:`<b>${fmt(s.count)} sites (${percent(s.count,d.total)})</b> ${s.name.toLowerCase()}`}))}else{texts=st.slice(1).map(s=>({icon:s.name.includes('Approved')?'👍':s.name==='Rejected'?'⊗':s.name.includes('Pending')?'◷':s.name==='RFI'?'◉':s.name==='TI Completed'?'⚒':s.name==='Commissioned'?'⚙':'▤',text:`<b>${fmt(s.count)} sites (${percent(s.count,d.total)})</b> ${s.name.toLowerCase()}`}))}document.getElementById('highlights-'+key).innerHTML=texts.map(t=>`<div class="highlight"><span class="hicon">${t.icon}</span><span>${t.text}</span></div>`).join('')}
-function renderFields(key){const d=data[key];document.getElementById('fields-'+key).innerHTML=`<div class="field"><label>Total ${key==='ne25'?'Project Scope':'Site Count'}</label><input type="number" min="0" data-total="${key}" value="${d.total}" ${unlocked?'':'disabled'}></div>`+d.stages.map((s,i)=>`<div class="field"><label>${s[0]}</label><input type="number" min="0" data-stage-key="${key}" data-stage-index="${i}" value="${s[1]}" ${i===0?'disabled':''} ${unlocked?'':'disabled'}></div>`).join('')}
+function renderFields(key){const d=data[key];let html=`<div class="field"><label>Total ${key==='ne25'?'Project Scope':'Site Count'}</label><input type="number" min="0" data-total="${key}" value="${d.total}" ${unlocked?'':'disabled'}></div>`+d.stages.map((s,i)=>`<div class="field"><label>${s[0]}</label><input type="number" min="0" data-stage-key="${key}" data-stage-index="${i}" value="${s[1]}" ${i===0?'disabled':''} ${unlocked?'':'disabled'}></div>`).join('');if(key==='ne25'){const m=data.ne25monthly||{planned:0,actual:0};html+=`<div class="field" style="grid-column:1/-1;border-top:1px solid var(--line);margin-top:6px;padding-top:10px"><label style="font-size:12px;color:var(--navy)">📅 Current Month (${new Date().toLocaleDateString('en-US',{month:'long',year:'numeric'})})</label></div><div class="field"><label>Current Month Planned</label><input type="number" min="0" data-ne25monthly="planned" value="${m.planned}" ${unlocked?'':'disabled'}></div><div class="field"><label>Current Month Actual (Done)</label><input type="number" min="0" data-ne25monthly="actual" value="${m.actual}" ${unlocked?'':'disabled'}></div>`;}document.getElementById('fields-'+key).innerHTML=html;}
+function renderNe25Monthly(){const m=data.ne25monthly||{planned:0,actual:0};const pct=m.planned>0?Math.min(100,Math.round(m.actual/m.planned*100)):0;document.getElementById('ne25-monthly-block').innerHTML=`<div class="monthly-block"><div class="monthly-block-head"><h3>📅 NE25 MW — Monthly Execution Tracker</h3><span>${new Date().toLocaleDateString('en-US',{month:'long',year:'numeric'})}</span></div><div class="monthly-kpi mk-planned"><div class="mk-label">Current Month Planned</div><div class="mk-num">${m.planned}</div><div class="mk-sub">Manually updated in Edit NE25 MW Project Counts</div><div class="mk-bar"><span style="width:100%;background:#0868d7"></span></div></div><div class="monthly-kpi mk-actual"><div class="mk-label">Current Month Actual</div><div class="mk-num">${m.actual}</div><div class="mk-sub">${pct}% completion rate · rows marked Done</div><div class="mk-bar"><span style="width:${pct}%;background:#299b42"></span></div></div></div>`;}
 function renderDashboard(key){renderMetrics(key);renderSummary(key);renderProgress(key);renderHighlights(key);renderFields(key)}
-
-// ── NE25 Monthly Summary ──────────────────────────────────────────────────
-function currentMonthKey(){const n=new Date();return `${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,'0')}`;}
-function currentMonthLabel(){return new Date().toLocaleDateString('en-US',{month:'long',year:'numeric'});}
-function getMonthTotals(){const k=currentMonthKey();if(!data.ne25MonthlyTotals)data.ne25MonthlyTotals={};if(!data.ne25MonthlyTotals[k])data.ne25MonthlyTotals[k]={planned:0,actual:0};return data.ne25MonthlyTotals[k];}
-function bumpMonthly(field,delta){const t=getMonthTotals();t[field]=Math.max(0,(t[field]||0)+delta);}
-function renderNe25MonthlySummary(){
-  const t=getMonthTotals();
-  const pct=t.planned>0?Math.min(100,Math.round(t.actual/t.planned*100)):0;
-  document.getElementById('ne25-monthly-summary').innerHTML=`
-  <div class="monthly-summary-block">
-    <div class="card-head">
-      <h3>📅 NE25 MW — Monthly Execution Tracker</h3>
-      <span class="month-label">${currentMonthLabel()}</span>
-    </div>
-    <div class="monthly-kpi-grid">
-      <div class="monthly-kpi mk-planned">
-        <div class="mk-label">Current Month Planned</div>
-        <div class="mk-num">${t.planned}</div>
-        <div class="mk-sub">Total rows planned this month (cumulative, persists after row removal)</div>
-        <div class="mk-bar"><span style="width:100%;background:#0868d7"></span></div>
-      </div>
-      <div class="monthly-kpi mk-actual">
-        <div class="mk-label">Current Month Actual</div>
-        <div class="mk-num">${t.actual}</div>
-        <div class="mk-sub">${pct}% completion rate · rows marked Done this month</div>
-        <div class="mk-bar"><span style="width:${pct}%;background:#299b42"></span></div>
-      </div>
-    </div>
-  </div>`;}
-
 
 // ── Status select coloring ────────────────────────────────────────────────
 function applyStatusColor(sel){
@@ -274,7 +238,7 @@ function renderWeeklySummary(rows){
 
 function renderAll(){
   ['expansion','newsites','ne25'].forEach(renderDashboard);
-  renderNe25MonthlySummary();
+  renderNe25Monthly();
   renderWeekly();
   document.getElementById('statusdot').classList.toggle('open',unlocked);
   document.getElementById('locktext').textContent=unlocked?'Editing unlocked':'Editing locked';
@@ -314,17 +278,12 @@ document.addEventListener('change',e=>{
   } else if(t.dataset.plan){
     const i=Number(t.dataset.i),field=t.dataset.plan,key=t.dataset.stream;
     data.weekly[key][i][field]=field==='progress'?Math.min(100,Math.max(0,Number(t.value)||0)):t.value;
-    if(field==='status'){
-      applyStatusColor(t);
-      if(key==='ne25'){
-        const prev=data.weekly[key][i]._prevStatus;
-        const next=t.value;
-        if(next==='Done'&&prev!=='Done'){bumpMonthly('actual',1);renderNe25MonthlySummary();}
-        else if(prev==='Done'&&next!=='Done'){bumpMonthly('actual',-1);renderNe25MonthlySummary();}
-      }
-    }
-    if(key==='ne25')data.weekly[key][i]._prevStatus=t.value;
+    if(field==='status'){applyStatusColor(t);}
     renderWeekly();
+  } else if(t.dataset.ne25monthly){
+    if(!data.ne25monthly)data.ne25monthly={planned:0,actual:0};
+    data.ne25monthly[t.dataset.ne25monthly]=Math.max(0,Number(t.value)||0);
+    renderNe25Monthly();
   }
 });
 
@@ -345,16 +304,12 @@ document.addEventListener('click',e=>{
   // remove row
   if(t.dataset.remove!==undefined&&unlocked){
     const [key,index]=t.dataset.remove.split(':');
-    const removedRow=data.weekly[key][Number(index)];
-    if(key==='ne25'&&removedRow&&removedRow.status==='Done'){bumpMonthly('actual',1);renderNe25MonthlySummary();}
     data.weekly[key].splice(Number(index),1);renderWeekly();
   }
   // add plan row
   if(t.dataset.addPlan&&unlocked){
     const key=t.dataset.addPlan;
-    const newRow={week:'W44 Plan',date:'',siteId:'',activity:'',status:'Planned',progress:0,remarks:'',_prevStatus:'Planned'};
-    data.weekly[key].push(newRow);
-    if(key==='ne25'){bumpMonthly('planned',1);renderNe25MonthlySummary();}
+    data.weekly[key].push({week:'W44 Plan',date:'',siteId:'',activity:'',status:'Planned',progress:0,remarks:''});
     renderWeekly();
   }
   // CSV download
