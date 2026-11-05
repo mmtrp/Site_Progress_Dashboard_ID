@@ -98,7 +98,7 @@ function currentWeekLabel(){const d=new Date();const jan4=new Date(d.getFullYear
 const defaultData={
   expansion:{title:'Expansion Site Progress',total:71,stages:[['Total Site Count',71,'#1976d2'],['RFI',71,'#0755c9'],['TI Completed',70,'#2e9b36'],['Commissioned',70,'#148a73'],['PRE PAT Submitted',68,'#ff7900'],['PAT Approved',64,'#299b42'],['Rejected',2,'#d7192d'],['Mobitel FB Pending',2,'#ff7900']]},
   newsites:{title:'New Sites Progress',total:22,stages:[['Total Site Count',22,'#1976d2'],['RFI',17,'#0755c9'],['TI Completed',17,'#2e9b36'],['Commissioned',17,'#148a73'],['PRE PAT Submitted',17,'#ff7900'],['PAT Approved',14,'#299b42'],['Rejected',3,'#d7192d'],['Mobitel FB Pending',0,'#ff7900']]},
-  ne25:{title:'NE25 MW Implementation Update',total:129,stages:[['Total Project Scope',129,'#0755c9'],['Material Requested from Mobitel',108,'#1976d2'],['Material Collected from Mobitel WH',92,'#078b91'],['Installation Completed',54,'#ff7900'],['Traffic Transferred',45,'#299b42'],['PAT Submitted',40,'#ff7900'],['PAT Approved',11,'#299b42'],['PAC Approved',0,'#078b91']]},
+  ne25:{title:'NE25 MW Implementation Update',total:129,stages:[['Total Project Scope',129,'#0755c9'],['Material Requested from Mobitel',108,'#1976d2'],['Material Collected from Mobitel WH',92,'#078b91'],['Installation Completed',54,'#ff7900'],['Traffic Transferred',45,'#299b42'],['PAT Submitted',40,'#ff7900'],['PAT Approved',11,'#299b42'],['SAR Submitted',72,'#ff7900'],['SAR Approved',34,'#299b42'],['PAC Approved',0,'#078b91']]},
   weekly:{expansion:[{week:currentWeekLabel(),date:'',siteId:'',activity:'',status:'Planned',subcon:'',team:'',progress:0,remarks:''}],newsites:[{week:currentWeekLabel(),date:'',siteId:'',activity:'',status:'Planned',progress:0,remarks:''}],ne25:[{week:currentWeekLabel(),date:'',siteId:'',activity:'',status:'Planned',progress:0,remarks:''}]},
   ne25monthly:{planned:0,actual:0},
   weeklyHistory:{expansion:[],newsites:[],ne25:[]}
@@ -116,6 +116,7 @@ onValue(dbRef,(snapshot)=>{
       let parsed=typeof saved==='string'?JSON.parse(saved):saved;
       for(const k of ['expansion','newsites','ne25'])
         if(!parsed[k]?.stages||parsed[k].stages.length<defaultData[k].stages.length-1){parsed=structuredClone(defaultData);break;}
+        if(parsed['ne25']?.stages?.length===7)parsed['ne25'].stages.push(['SAR Approved',34,'#299b42']);
         if(parsed['ne25']?.stages?.length===7)parsed['ne25'].stages.push(['PAC Approved',0,'#078b91']);
       if(!parsed.weekly||Array.isArray(parsed.weekly))parsed.weekly=structuredClone(defaultData.weekly);
       for(const k of ['expansion','newsites','ne25'])
