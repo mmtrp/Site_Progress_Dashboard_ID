@@ -117,7 +117,7 @@ onValue(dbRef,(snapshot)=>{
       for(const k of ['expansion','newsites','ne25'])
         if(!parsed[k]?.stages||parsed[k].stages.length<defaultData[k].stages.length-1){parsed=structuredClone(defaultData);break;}
         if(parsed['ne25']?.stages?.length===7)parsed['ne25'].stages.push(['PAT Approved',0,'#299b42'],['SAR Submitted',0,'#ff7900'],['SAR Approved',0,'#078b91'],['PAC Approved',0,'#078b91']);
-        if(parsed['ne25']?.stages?.length===8){parsed['ne25'].stages.splice(7,0,['SAR Submitted',0,'#ff7900'],['SAR Approved',0,'#078b91']);}
+        if(parsed['ne25']?.stages?.length===8){parsed['ne25'].stages.splice(7,0,['SAR Submitted',0,'#ff7900'],['SAR Approved',0,'#078b91']);};
       if(!parsed.weekly||Array.isArray(parsed.weekly))parsed.weekly=structuredClone(defaultData.weekly);
       for(const k of ['expansion','newsites','ne25'])
         if(!Array.isArray(parsed.weekly[k]))parsed.weekly[k]=structuredClone(defaultData.weekly[k]);
