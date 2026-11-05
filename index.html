@@ -36,6 +36,7 @@ select.status-sel.s-Rejected{background:#fce7f3;color:#9d174d;border-color:#f9a8
 select.status-sel.s-PendingFeedback{background:#fff7e6;color:#92400e;border-color:#fcd34d}
 select.status-sel.s-NotStarted{background:#f1f5f9;color:#475569;border-color:#cbd5e1}
 .monthly-block{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:14px}.monthly-block-head{grid-column:1/-1;padding:11px 15px;background:linear-gradient(100deg,#082858,#0b468d);display:flex;justify-content:space-between;align-items:center}.monthly-block-head h3{font-size:13px;margin:0;color:#fff;text-transform:uppercase;letter-spacing:.35px}.monthly-block-head span{font-size:12px;color:#dceaff;font-weight:700}.monthly-kpi{background:var(--card);padding:18px 22px;border-right:1px solid var(--line)}.monthly-kpi:last-child{border-right:0}.monthly-kpi .mk-label{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:#51627c;font-weight:800;margin-bottom:6px}.monthly-kpi .mk-num{font-size:36px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1}.monthly-kpi .mk-sub{font-size:11px;color:var(--muted);margin-top:4px}.monthly-kpi .mk-bar{height:5px;background:#e9eef6;border-radius:8px;overflow:hidden;margin-top:10px}.monthly-kpi .mk-bar span{display:block;height:100%;border-radius:8px}.mk-planned .mk-num{color:#0868d7}.mk-actual .mk-num{color:#299b42}
+.filter-bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px 14px;background:#f0f4fb;border-bottom:1px solid var(--line)}.filter-bar label{font-size:11px;font-weight:800;color:#5b6b82}.filter-bar select,.filter-bar input{font-size:11px;padding:5px 8px;border:1px solid #cfd9e7;border-radius:6px;background:#fff;color:var(--ink)}.filter-bar .btn{padding:6px 12px;font-size:11px}
 @media(max-width:1100px){.metrics{grid-template-columns:repeat(4,minmax(0,1fr))}.grid2{grid-template-columns:1fr}.editable-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.wrap{padding:12px}.topbar{padding:15px}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.editable-grid{grid-template-columns:1fr}.progress-layout{gap:14px;flex-wrap:wrap}.donut{width:140px;height:140px}.donut:before{width:98px;height:98px}.highlights{grid-template-columns:1fr}.heading{text-align:left}.zte{font-size:25px}}
 @media print{.toolbar,.btn,.tabs,.plan-toolbar,.remove,.footer{display:none!important}.panel{display:block!important;page-break-after:always}.topbar{background:#fff;color:#111;border-bottom:2px solid #0b376f}.heading p{color:#333}.zte{color:#0b6acb}.wrap{max-width:none;padding:8px}.card,.metric{box-shadow:none;break-inside:avoid}}
@@ -90,12 +91,17 @@ const STATUS_CLASS = {
 };
 
 const PASSWORD='NE25TOR';
+const SUBCON_LIST=['Asian','MASS','Lakyota'];
+const TEAM_LIST=['Amila','Senarath','Bhanuka','Eranda','Rangana','Sandaruwan','Vishnu','Nalin','Nalaka','Dhanushka'];
+// returns current ISO week label e.g. "W45 Plan"
+function currentWeekLabel(){const d=new Date();const jan4=new Date(d.getFullYear(),0,4);const w=Math.ceil(((d-jan4)/86400000+jan4.getDay()+1)/7);return 'W'+w+' Plan';}
 const defaultData={
   expansion:{title:'Expansion Site Progress',total:71,stages:[['Total Site Count',71,'#1976d2'],['RFI',71,'#0755c9'],['TI Completed',70,'#2e9b36'],['Commissioned',70,'#148a73'],['PRE PAT Submitted',68,'#ff7900'],['PAT Approved',64,'#299b42'],['Rejected',2,'#d7192d'],['Mobitel FB Pending',2,'#ff7900']]},
   newsites:{title:'New Sites Progress',total:22,stages:[['Total Site Count',22,'#1976d2'],['RFI',17,'#0755c9'],['TI Completed',17,'#2e9b36'],['Commissioned',17,'#148a73'],['PRE PAT Submitted',17,'#ff7900'],['PAT Approved',14,'#299b42'],['Rejected',3,'#d7192d'],['Mobitel FB Pending',0,'#ff7900']]},
   ne25:{title:'NE25 MW Implementation Update',total:129,stages:[['Total Project Scope',129,'#0755c9'],['Material Requested from Mobitel',108,'#1976d2'],['Material Collected from Mobitel WH',92,'#078b91'],['Installation Completed',54,'#ff7900'],['Traffic Transferred',45,'#299b42'],['PAT Submitted',40,'#ff7900'],['PAT Approved',11,'#299b42'],['PAC Approved',0,'#078b91']]},
-  weekly:{expansion:[{week:'W44 Plan',date:'',siteId:'',activity:'',status:'Planned',progress:0,remarks:''}],newsites:[{week:'W44 Plan',date:'',siteId:'',activity:'',status:'Planned',progress:0,remarks:''}],ne25:[{week:'W44 Plan',date:'',siteId:'',activity:'',status:'Planned',progress:0,remarks:''}]},
-  ne25monthly:{planned:0,actual:0}
+  weekly:{expansion:[{week:currentWeekLabel(),date:'',siteId:'',activity:'',status:'Planned',subcon:'',team:'',progress:0,remarks:''}],newsites:[{week:currentWeekLabel(),date:'',siteId:'',activity:'',status:'Planned',progress:0,remarks:''}],ne25:[{week:currentWeekLabel(),date:'',siteId:'',activity:'',status:'Planned',progress:0,remarks:''}]},
+  ne25monthly:{planned:0,actual:0},
+  weeklyHistory:{expansion:[],newsites:[],ne25:[]}
 };
 
 let data=structuredClone(defaultData),unlocked=false;
@@ -115,6 +121,12 @@ onValue(dbRef,(snapshot)=>{
       for(const k of ['expansion','newsites','ne25'])
         if(!Array.isArray(parsed.weekly[k]))parsed.weekly[k]=structuredClone(defaultData.weekly[k]);
       if(!parsed.ne25monthly||typeof parsed.ne25monthly!=='object')parsed.ne25monthly={planned:0,actual:0};
+      // backfill subcon/team on existing expansion rows
+      parsed.weekly.expansion=parsed.weekly.expansion.map(r=>({subcon:r.subcon||'',team:r.team||'',...r}));
+      // migrate weeklyHistory
+      if(!parsed.weeklyHistory||typeof parsed.weeklyHistory!=='object'||Array.isArray(parsed.weeklyHistory))parsed.weeklyHistory={expansion:[],newsites:[],ne25:[]};
+      for(const k of ['expansion','newsites','ne25'])if(!Array.isArray(parsed.weeklyHistory[k]))parsed.weeklyHistory[k]=[];
+      parsed.weeklyHistory.expansion=parsed.weeklyHistory.expansion.map(r=>({subcon:r.subcon||'',team:r.team||'',...r}));
       data=parsed;
       renderAll();
     }catch(e){console.error('Firebase parse error',e);}
@@ -193,40 +205,69 @@ function pickSiteId(val,key,i){
 }
 
 // ── Weekly render ─────────────────────────────────────────────────────────
+const _weekFilter={expansion:'',newsites:'',ne25:''};
+
+function allWeeks(key){
+  const live=data.weekly[key]||[];
+  const hist=(data.weeklyHistory&&data.weeklyHistory[key])||[];
+  const seen=new Set();
+  return [...live,...hist].map(r=>r.week).filter(w=>{if(!w||seen.has(w))return false;seen.add(w);return true;}).sort();
+}
+
 function renderWeekly(){
   const host=document.getElementById('weekly-workstreams');
   const configs=[['expansion','Expansion Site Progress'],['newsites','New Sites Progress'],['ne25','NE25 MW Implementation']];
   host.innerHTML=configs.map(([key,title])=>{
-    const rows=data.weekly[key]||[];
-    const statusOpts=STATUS_LIST.map(x=>`<option value="${x}">${x}</option>`).join('');
+    const liveRows=data.weekly[key]||[];
+    const histRows=(data.weeklyHistory&&data.weeklyHistory[key])||[];
+    const filterVal=_weekFilter[key]||'';
+    const viewRows=filterVal?liveRows.filter(r=>r.week===filterVal):liveRows;
+    const weeks=allWeeks(key);
+    const weekOpts='<option value="">Current week rows</option>'+weeks.map(w=>`<option value="${esc(w)}" ${filterVal===w?'selected':''}>${esc(w)}</option>`).join('');
+    const isExp=key==='expansion';
+    const thead=isExp
+      ?`<tr><th>Week / Plan</th><th>Plan Date</th><th>Site ID</th><th>Planned Activity</th><th>Actual Status</th><th>Subcon</th><th>Team</th><th>Progress %</th><th>Remarks / Next Action</th><th>Action</th></tr>`
+      :`<tr><th>Week / Plan</th><th>Plan Date</th><th>Site ID</th><th>Planned Activity</th><th>Actual Status</th><th>Progress %</th><th>Remarks / Next Action</th><th>Action</th></tr>`;
+    const tbody=viewRows.map(r=>{
+      const i=liveRows.indexOf(r);
+      const base=`
+        <td><input data-plan="week" data-stream="${key}" data-i="${i}" value="${esc(r.week)}" ${unlocked?'':'disabled'} placeholder="${currentWeekLabel()}"></td>
+        <td><input type="date" data-plan="date" data-stream="${key}" data-i="${i}" value="${esc(r.date)}" ${unlocked?'':'disabled'}></td>
+        <td>${makeSiteIdCell(key,i,r.siteId)}</td>
+        <td><input class="activity" data-plan="activity" data-stream="${key}" data-i="${i}" value="${esc(r.activity)}" ${unlocked?'':'disabled'} placeholder="Planned work"></td>
+        <td><select class="status-sel ${statusClass(r.status)}" data-plan="status" data-stream="${key}" data-i="${i}" ${unlocked?'':'disabled'}>${STATUS_LIST.map(x=>`<option value="${x}" ${r.status===x?'selected':''}>${x}</option>`).join('')}</select></td>`;
+      const extra=isExp?`
+        <td><select data-plan="subcon" data-stream="${key}" data-i="${i}" ${unlocked?'':'disabled'} style="min-width:90px"><option value="">— Select —</option>${SUBCON_LIST.map(x=>`<option value="${x}" ${r.subcon===x?'selected':''}>${x}</option>`).join('')}<option value="__manual__" ${!SUBCON_LIST.includes(r.subcon)&&r.subcon?'selected':''}>Other…</option></select>${(!SUBCON_LIST.includes(r.subcon)&&r.subcon)?`<input data-plan="subcon" data-stream="${key}" data-i="${i}" value="${esc(r.subcon)}" ${unlocked?'':'disabled'} placeholder="Enter subcon" style="margin-top:3px;min-width:90px">`:''}</td>
+        <td><select data-plan="team" data-stream="${key}" data-i="${i}" ${unlocked?'':'disabled'} style="min-width:100px"><option value="">— Select —</option>${TEAM_LIST.map(x=>`<option value="${x}" ${r.team===x?'selected':''}>${x}</option>`).join('')}<option value="__manual__" ${!TEAM_LIST.includes(r.team)&&r.team?'selected':''}>Other…</option></select>${(!TEAM_LIST.includes(r.team)&&r.team)?`<input data-plan="team" data-stream="${key}" data-i="${i}" value="${esc(r.team)}" ${unlocked?'':'disabled'} placeholder="Enter name" style="margin-top:3px;min-width:100px">`:''}</td>`:'';
+      const end=`
+        <td><input type="number" min="0" max="100" data-plan="progress" data-stream="${key}" data-i="${i}" value="${r.progress}" ${unlocked?'':'disabled'} style="width:75px;min-width:65px"></td>
+        <td><input data-plan="remarks" data-stream="${key}" data-i="${i}" value="${esc(r.remarks)}" ${unlocked?'':'disabled'} placeholder="Remarks / next action"></td>
+        <td><button class="remove" data-remove="${key}:${i}" ${unlocked?'':'disabled'}>Remove</button></td>`;
+      return `<tr>${base}${extra}${end}</tr>`;
+    }).join('');
     return `<article class="card weekly-workstream-card">
       <div class="card-head">
-        <div><h3>${title} — Weekly Plan & Actuals</h3><span class="note" id="planCount-${key}">${rows.length} plan row${rows.length===1?'':'s'}</span></div>
+        <div><h3>${title} — Weekly Plan & Actuals</h3><span class="note">${liveRows.length} active row${liveRows.length===1?'':'s'} · ${histRows.length} in history</span></div>
         <div class="plan-toolbar">
           <button class="btn primary" data-add-plan="${key}" ${unlocked?'':'disabled'}>＋ Add Row</button>
-          <button class="btn" data-csv-plan="${key}">Download CSV</button>
+          <button class="btn" data-csv-plan="${key}">⬇ Download CSV (all)</button>
         </div>
       </div>
-      <div class="table-wrap"><table class="plan-table">
-        <thead><tr><th>Week / Plan</th><th>Plan Date</th><th>Site ID</th><th>Planned Activity</th><th>Actual Status</th><th>Progress %</th><th>Remarks / Next Action</th><th>Action</th></tr></thead>
-        <tbody>${rows.map((r,i)=>`<tr>
-          <td><input data-plan="week" data-stream="${key}" data-i="${i}" value="${esc(r.week)}" ${unlocked?'':'disabled'} placeholder="W44 Plan"></td>
-          <td><input type="date" data-plan="date" data-stream="${key}" data-i="${i}" value="${esc(r.date)}" ${unlocked?'':'disabled'}></td>
-          <td>${makeSiteIdCell(key,i,r.siteId)}</td>
-          <td><input class="activity" data-plan="activity" data-stream="${key}" data-i="${i}" value="${esc(r.activity)}" ${unlocked?'':'disabled'} placeholder="Planned work"></td>
-          <td><select class="status-sel ${statusClass(r.status)}" data-plan="status" data-stream="${key}" data-i="${i}" ${unlocked?'':'disabled'}>${STATUS_LIST.map(x=>`<option value="${x}" ${r.status===x?'selected':''}>${x}</option>`).join('')}</select></td>
-          <td><input type="number" min="0" max="100" data-plan="progress" data-stream="${key}" data-i="${i}" value="${r.progress}" ${unlocked?'':'disabled'} style="width:75px;min-width:65px"></td>
-          <td><input data-plan="remarks" data-stream="${key}" data-i="${i}" value="${esc(r.remarks)}" ${unlocked?'':'disabled'} placeholder="Remarks / next action"></td>
-          <td><button class="remove" data-remove="${key}:${i}" ${unlocked?'':'disabled'}>Remove</button></td>
-        </tr>`).join('')}</tbody>
-      </table>
-      <div class="empty" style="display:${rows.length?'none':'block'}">No plan rows yet. Unlock editing and add a row.</div>
+      <div class="filter-bar">
+        <label>Filter by week:</label>
+        <select data-week-filter="${key}">${weekOpts}</select>
+        <span style="font-size:11px;color:var(--muted)">${filterVal?`Showing ${viewRows.length} row(s) for ${filterVal}`:'Showing all current rows'}</span>
       </div>
-      <div class="weekly-summary">${renderWeeklySummary(rows)}</div>
+      <div class="table-wrap"><table class="plan-table">
+        <thead>${thead}</thead>
+        <tbody>${tbody}</tbody>
+      </table>
+      <div class="empty" style="display:${viewRows.length?'none':'block'}">No rows to display.</div>
+      </div>
+      <div class="weekly-summary">${renderWeeklySummary(liveRows)}</div>
     </article>`;
   }).join('');
   document.getElementById('weeklyLockBanner').style.display=unlocked?'none':'block';
-  // apply status colors
   document.querySelectorAll('select.status-sel').forEach(applyStatusColor);
 }
 
@@ -262,6 +303,8 @@ document.addEventListener('input',e=>{
     if(field==='siteId'){
       data.weekly[key][i].siteId=t.value;
       openDropdown(t,key,i);
+    } else if((field==='subcon'||field==='team')&&t.tagName==='INPUT'){
+      data.weekly[key][i][field]=t.value;
     } else {
       data.weekly[key][i][field]=field==='progress'?Math.min(100,Math.max(0,Number(t.value)||0)):t.value;
     }
@@ -278,8 +321,15 @@ document.addEventListener('change',e=>{
     const key=t.dataset.stageKey,i=Number(t.dataset.stageIndex);data[key].stages[i][1]=Math.max(0,Number(t.value)||0);renderDashboard(key);
   } else if(t.dataset.plan){
     const i=Number(t.dataset.i),field=t.dataset.plan,key=t.dataset.stream;
-    data.weekly[key][i][field]=field==='progress'?Math.min(100,Math.max(0,Number(t.value)||0)):t.value;
+    if((field==='subcon'||field==='team')&&t.tagName==='SELECT'){
+      data.weekly[key][i][field]=t.value==='__manual__'?'':t.value;
+    } else {
+      data.weekly[key][i][field]=field==='progress'?Math.min(100,Math.max(0,Number(t.value)||0)):t.value;
+    }
     if(field==='status'){applyStatusColor(t);}
+    renderWeekly();
+  } else if(t.dataset.weekFilter!==undefined){
+    _weekFilter[t.dataset.weekFilter]=t.value;
     renderWeekly();
   } else if(t.dataset.ne25monthly){
     if(!data.ne25monthly)data.ne25monthly={planned:0,actual:0};
@@ -302,15 +352,26 @@ document.addEventListener('click',e=>{
   }
   // close dropdown if clicking outside
   if(!t.closest('.siteid-wrap'))closeAllDropdowns();
-  // remove row
+  // remove row — archive to history first
   if(t.dataset.remove!==undefined&&unlocked){
     const [key,index]=t.dataset.remove.split(':');
-    data.weekly[key].splice(Number(index),1);renderWeekly();
+    const removed=data.weekly[key].splice(Number(index),1)[0];
+    if(removed){
+      if(!data.weeklyHistory)data.weeklyHistory={expansion:[],newsites:[],ne25:[]};
+      if(!Array.isArray(data.weeklyHistory[key]))data.weeklyHistory[key]=[];
+      const dup=data.weeklyHistory[key].some(h=>h.week===removed.week&&h.siteId===removed.siteId&&h.activity===removed.activity);
+      if(!dup)data.weeklyHistory[key].push(removed);
+    }
+    renderWeekly();
   }
-  // add plan row
+  // add plan row — inherit week label from last row or use current week
   if(t.dataset.addPlan&&unlocked){
     const key=t.dataset.addPlan;
-    data.weekly[key].push({week:'W44 Plan',date:'',siteId:'',activity:'',status:'Planned',progress:0,remarks:''});
+    const live=data.weekly[key]||[];
+    const weekLabel=live.length>0?live[live.length-1].week:currentWeekLabel();
+    const newRow={week:weekLabel,date:'',siteId:'',activity:'',status:'Planned',progress:0,remarks:''};
+    if(key==='expansion'){newRow.subcon='';newRow.team='';}
+    data.weekly[key].push(newRow);
     renderWeekly();
   }
   // CSV download
@@ -355,8 +416,18 @@ document.getElementById('exportBtn').addEventListener('click',()=>{
 });
 function downloadWeeklyCsv(key){
   const titles={expansion:'expansion_site',newsites:'new_sites',ne25:'ne25_mw'};
-  const headers=['Week / Plan','Plan Date','Site ID','Planned Activity','Actual Status','Progress %','Remarks / Next Action'];
-  const rows=(data.weekly[key]||[]).map(r=>[r.week,r.date,r.siteId,r.activity,r.status,r.progress,r.remarks]);
+  const live=data.weekly[key]||[];
+  const hist=(data.weeklyHistory&&data.weeklyHistory[key])||[];
+  const seen=new Set();
+  const allRows=[...hist,...live].filter(r=>{const k=r.week+'|'+r.siteId+'|'+r.activity;if(seen.has(k))return false;seen.add(k);return true;});
+  allRows.sort((a,b)=>(a.week||'').localeCompare(b.week||''));
+  const isExp=key==='expansion';
+  const headers=isExp
+    ?['Week / Plan','Plan Date','Site ID','Planned Activity','Actual Status','Subcon','Team','Progress %','Remarks / Next Action']
+    :['Week / Plan','Plan Date','Site ID','Planned Activity','Actual Status','Progress %','Remarks / Next Action'];
+  const rows=allRows.map(r=>isExp
+    ?[r.week,r.date,r.siteId,r.activity,r.status,r.subcon||'',r.team||'',r.progress,r.remarks]
+    :[r.week,r.date,r.siteId,r.activity,r.status,r.progress,r.remarks]);
   const csv=[headers,...rows].map(row=>row.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');
   downloadBlob(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'}),titles[key]+'_weekly_plan_actuals.csv');
 }
