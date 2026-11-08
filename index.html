@@ -20,6 +20,8 @@
 .status-Planned{background:#e8f0fe;color:#1a56c4;border:1px solid #b6d0f7}
 .status-Ongoing{background:#fff3cd;color:#7c5100;border:1px solid #ffd166}
 .status-Done{background:#d4edda;color:#1a6b30;border:1px solid #7fcf97}
+.status-PrePAT{background:#e0f2fe;color:#075985;border:1px solid #7dd3fc}
+.status-PAT{background:#e0e7ff;color:#3730a3;border:1px solid #a5b4fc}
 .status-OnHold{background:#f3e8ff;color:#6b21a8;border:1px solid #c084fc}
 .status-Delayed{background:#ffe4e1;color:#991b1b;border:1px solid #fca5a5}
 .status-Rejected{background:#fce7f3;color:#9d174d;border:1px solid #f9a8d4}
@@ -30,16 +32,24 @@ select.status-sel{font-weight:700;border-radius:6px}
 select.status-sel.s-Planned{background:#e8f0fe;color:#1a56c4;border-color:#b6d0f7}
 select.status-sel.s-Ongoing{background:#fff3cd;color:#7c5100;border-color:#ffd166}
 select.status-sel.s-Done{background:#d4edda;color:#1a6b30;border-color:#7fcf97}
+select.status-sel.s-PrePAT{background:#e0f2fe;color:#075985;border-color:#7dd3fc}
+select.status-sel.s-PAT{background:#e0e7ff;color:#3730a3;border-color:#a5b4fc}
 select.status-sel.s-OnHold{background:#f3e8ff;color:#6b21a8;border-color:#c084fc}
 select.status-sel.s-Delayed{background:#ffe4e1;color:#991b1b;border-color:#fca5a5}
 select.status-sel.s-Rejected{background:#fce7f3;color:#9d174d;border-color:#f9a8d4}
 select.status-sel.s-PendingFeedback{background:#fff7e6;color:#92400e;border-color:#fcd34d}
 select.status-sel.s-NotStarted{background:#f1f5f9;color:#475569;border-color:#cbd5e1}
+/* ── Column header filters (work in locked + unlocked mode) ── */
+.plan-table tr.filter-row th{background:#e8eef8;padding:5px 6px;border-bottom:1px solid #c9d6e8;vertical-align:middle}
+.plan-table .col-filter{min-width:80px;width:100%;padding:5px 6px;border:1px solid #b6c8e0;border-radius:6px;font-size:11px;background:#fff;color:var(--ink);font-weight:400}
+.plan-table .col-filter.on{border-color:var(--blue);background:#eef5ff;box-shadow:0 0 0 2px rgba(8,104,215,.15);font-weight:700}
+.clear-filters{border:1px solid #b6c8e0;background:#fff;color:var(--navy);border-radius:6px;padding:5px 8px;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap}
+.clear-filters:disabled{opacity:.45;cursor:default}
 .monthly-block{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:14px}.monthly-block-head{grid-column:1/-1;padding:11px 15px;background:linear-gradient(100deg,#082858,#0b468d);display:flex;justify-content:space-between;align-items:center}.monthly-block-head h3{font-size:13px;margin:0;color:#fff;text-transform:uppercase;letter-spacing:.35px}.monthly-block-head span{font-size:12px;color:#dceaff;font-weight:700}.monthly-kpi{background:var(--card);padding:18px 22px;border-right:1px solid var(--line)}.monthly-kpi:last-child{border-right:0}.monthly-kpi .mk-label{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:#51627c;font-weight:800;margin-bottom:6px}.monthly-kpi .mk-num{font-size:36px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1}.monthly-kpi .mk-sub{font-size:11px;color:var(--muted);margin-top:4px}.monthly-kpi .mk-bar{height:5px;background:#e9eef6;border-radius:8px;overflow:hidden;margin-top:10px}.monthly-kpi .mk-bar span{display:block;height:100%;border-radius:8px}.mk-planned .mk-num{color:#0868d7}.mk-actual .mk-num{color:#299b42}
 .filter-bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px 14px;background:#f0f4fb;border-bottom:1px solid var(--line)}.filter-bar label{font-size:11px;font-weight:800;color:#5b6b82}.filter-bar select,.filter-bar input{font-size:11px;padding:5px 8px;border:1px solid #cfd9e7;border-radius:6px;background:#fff;color:var(--ink)}.filter-bar .btn{padding:6px 12px;font-size:11px}
 @media(max-width:1100px){.metrics{grid-template-columns:repeat(4,minmax(0,1fr))}.grid2{grid-template-columns:1fr}.editable-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.wrap{padding:12px}.topbar{padding:15px}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.editable-grid{grid-template-columns:1fr}.progress-layout{gap:14px;flex-wrap:wrap}.donut{width:140px;height:140px}.donut:before{width:98px;height:98px}.highlights{grid-template-columns:1fr}.heading{text-align:left}.zte{font-size:25px}}
-@media print{.toolbar,.btn,.tabs,.plan-toolbar,.remove,.footer{display:none!important}.panel{display:block!important;page-break-after:always}.topbar{background:#fff;color:#111;border-bottom:2px solid #0b376f}.heading p{color:#333}.zte{color:#0b6acb}.wrap{max-width:none;padding:8px}.card,.metric{box-shadow:none;break-inside:avoid}}
+@media print{.toolbar,.btn,.tabs,.plan-toolbar,.remove,.footer,.filter-row{display:none!important}.panel{display:block!important;page-break-after:always}.topbar{background:#fff;color:#111;border-bottom:2px solid #0b376f}.heading p{color:#333}.zte{color:#0b6acb}.wrap{max-width:none;padding:8px}.card,.metric{box-shadow:none;break-inside:avoid}}
 </style>
 </head>
 <body>
@@ -53,7 +63,7 @@ select.status-sel.s-NotStarted{background:#f1f5f9;color:#475569;border-color:#cb
 </section>
 <section class="panel" id="panel-newsites"><div class="section-title"><div><h2>New Sites Progress</h2><p>Site pipeline funnel · percentage calculations use the total site count.</p></div></div><div class="metrics" id="metrics-newsites"></div><div class="grid2"><article class="card"><div class="card-head"><h3>New Site Pipeline Funnel</h3></div><div class="table-wrap"><table><thead><tr><th>Stage</th><th class="num">Site Count</th><th class="num">% of Total Count</th></tr></thead><tbody id="summary-newsites"></tbody></table></div></article><article class="card"><div class="card-head"><h3>Progress at a Glance</h3></div><div class="card-body"><div class="progress-layout" id="progress-newsites"></div></div></article></div><article class="card"><div class="card-head"><h3>Key Highlights</h3></div><div class="card-body"><div class="highlights" id="highlights-newsites"></div></div></article><div class="card" style="margin-top:14px"><div class="card-head"><h3>Edit New Site Counts</h3><span class="note">All related summaries update automatically.</span></div><div class="editable-grid" id="fields-newsites"></div></div></section>
 <section class="panel" id="panel-ne25"><div class="section-title"><div><h2>NE25 MW Implementation Update</h2><p>Overview of project progress · site counts, percentages and implementation pipeline.</p></div></div><div id="ne25-monthly-block"></div><div class="metrics" id="metrics-ne25"></div><div class="grid2"><article class="card"><div class="card-head"><h3>Implementation Pipeline Funnel</h3></div><div class="table-wrap"><table><thead><tr><th>Stage</th><th class="num">Site Count</th><th class="num">% of Total Scope</th></tr></thead><tbody id="summary-ne25"></tbody></table></div></article><article class="card"><div class="card-head"><h3>Progress at a Glance</h3></div><div class="card-body"><div class="progress-layout" id="progress-ne25"></div></div></article></div><article class="card"><div class="card-head"><h3>Key Highlights</h3></div><div class="card-body"><div class="highlights" id="highlights-ne25"></div></div></article><div class="card" style="margin-top:14px"><div class="card-head"><h3>Edit NE25 MW Project Counts</h3><span class="note">Update counts to refresh the dashboard.</span></div><div class="editable-grid" id="fields-ne25"></div></div></section>
-<section class="panel" id="panel-weekly"><div class="section-title"><div><h2>Weekly Plan & Actuals</h2><p>Separate weekly execution trackers for each workstream.</p></div></div><div class="locked-banner" id="weeklyLockBanner">Editing is locked. Select <b>Unlock Editing</b> and enter the dashboard password to add or update weekly plans.</div>
+<section class="panel" id="panel-weekly"><div class="section-title"><div><h2>Weekly Plan & Actuals</h2><p>Separate weekly execution trackers for each workstream.</p></div></div><div class="locked-banner" id="weeklyLockBanner">Editing is locked. You can still filter and view rows using the week filter and the column filters. Select <b>Unlock Editing</b> and enter the dashboard password to add or update weekly plans.</div>
 <div id="weekly-workstreams" class="weekly-workstreams"></div></section>
 <div class="footer">Site Progress Control Dashboard · <span style="color:#299b42;font-weight:700">🟢 Live Sync Active</span></div>
 </main>
@@ -83,9 +93,10 @@ const SITE_IDS = {
   ne25: ["AMMAL1-AMDEE1","AMPAN2-AMOKA1","ANMOR1-ANDEK1","ANMSP1-ANJAY1","ANNOC2-ANHUN1","ANPSW1-ANGAM1","ANRAT1-ANKDW1","ANRAT2-ANRAT1","ANRAT3-ANRAT1","ANTHU1-ANSRA1","ANTHU2-ANNAL1","ANTIR1-ANSIV1","ANWAH1-ANKIR1","ANWIL1-ANRNW2","BDDMB1-BDBRL2","BDDOL1-BDBEL3","BDKEN2-BDBAD2","BDLUN1-BDHOP1","BDMEE1-BDKOM1","BDTIS1-BDAND1","CBHAN4-CBHAN1","CBPAD3-CBPAD1","CBWAG1-CBLAB1","COL495-COL037","GLHIY1-GLAKM1","GLHPT1-GLDEL1","GLNEL1-GLLAN1","GLNUG1-GLBAT1","GLTHG1-GLNVG1","GLUDU1-GLMAT1","GLUDU3-GLHOM1","GMKDR1-GMAKK1","GMNIT3-GMHAK1","GMWEW1-GMDAN1","GMWGM1-GMNAD1","HMAMB5-HMAMB2","HMHAN1-HMANG2","HMKIR1-HMBUN1","HMKRM1-HMHUL2","HMNIH1-HMBEL5","HMTRM1-HMMEE2","HMWEL1-HMBAD1","HMWLG1-HMKRM1","KGATU1-KGARD1","KGGON2-GMNAD1","KGHIN1-KGDIP2","KGMOR1-KGHET1","KGNLM1-KGKRD1","KGPEL1-KGKAR1","KLING2-KLHAN1","KLNAG1-KLBOM1","KLPAY6-KLPAY1","KLPET1-KLAGA2","KLTYT1-GLHIN2","KLWEW1-KLHED1","KUGUR1-KUEMB1","KUKON1-KUAMB1","KUMET2-KUHUM1","KUMUD1-KUGAL2","KUPDW1-KUHMN1","KURID1-KUMDR1","KUTLW1-KUMRG1","KUYAP1-KUMRG1","KUYAP1-KUNAG1","KYAKU2-KYAKU1","KYMAR2-KYBWL1","KYMED2-KYMAI1","KYNAR1-KYGOO1","KYPUT1-KYPLW1","KYUDA1-KYMDU1","MLANK3-MLANK1","MLDAM3-MLDAM1","MLMAT5-MLHPU1","MLNAL1-MLAND1","MLNAL1-MLKUB1","MOHAN2-MOATH2","MOKTG1-MODIY1","MOKUD1-MOBHR1","MOMTK1-MOBUT1","MOPEL4-MOPEL2","MOSIY1-MOMUT2","MOTKU1-HMMEE2","MRVEP1-MRMUR1","MTMUL1-MTDIY1","MTPNT1-MTKOK1","MTRAD2-MTBAT1","MTRAN1-MTKAM3","MTRDW1-MTMUL1","MTSIY1-MTDEL1","MUTHU3-MUTHU1","NUHAK1-BDBOR1","NUMAS1-MAS_SLT","NURIK2-NURIK1","NUTHA1-NUPAT1","NUVIC1-KYMAI1","NUWAL2-NUWAL1","POBAK1-POATG1","POHAB1-ANMEE1","POTHA1-POSOM2","POWLI1-PODIY2","PTKAR1-PTIHA2","PTURI2-PTMUS1","PTWLP1-PTAND1","RTEHA4-RTEHA1","RTENA1-MTAND1","RTENA1-MTMDP1","RTERP1-RTDEM1","RTGAM1-HMGAL1","RTKOL2-RTKOL1","RTKUR1-RTERA1","RTNIV1-RTKLB1","RTNIV1-RTKRW1","RTPEB1-RTKAL1","RTPEL2-RTHIR1","RTRAK2-RTRAK1","RTRAS1-RTOLU1","RTSIR1-RTRTG1","RTUDA3-RTPAH1","RTWAT1-RTNIV1","RTWEL1-RTDAH1","RTWEL1-RTKAP1","RTWEW2-RTGAL1","RTWTH1-RTKAL1","RTWTH1-RTRAM1","TRGOM2-ANWHK1","TRMED1-TRGOM2","VUPOO1-VUAWA1","ZDOM03-GMBGK1","ZNUG09-COL046"]
 };
 
-const STATUS_LIST = ['Planned','Ongoing','Done','On Hold','Delayed','Rejected','Mobitel FB Pending','Not Started'];
+const STATUS_LIST = ['Planned','Ongoing','Done','Pre-PAT','PAT','On Hold','Delayed','Rejected','Mobitel FB Pending','Not Started'];
 const STATUS_CLASS = {
   'Planned':'s-Planned','Ongoing':'s-Ongoing','Done':'s-Done',
+  'Pre-PAT':'s-PrePAT','PAT':'s-PAT',
   'On Hold':'s-OnHold','Delayed':'s-Delayed','Rejected':'s-Rejected',
   'Mobitel FB Pending':'s-PendingFeedback','Not Started':'s-NotStarted'
 };
@@ -204,6 +215,88 @@ function pickSiteId(val,key,i){
   closeAllDropdowns();
 }
 
+// ── Column header filters (view-only, work in locked mode) ────────────────
+const _colFilter={expansion:{},newsites:{},ne25:{}};
+
+function weeklyColumns(key){
+  const cols=[
+    {f:'week',type:'select'},
+    {f:'date',type:'select'},
+    {f:'siteId',type:'text',ph:'Search Site ID'},
+    {f:'activity',type:'text',ph:'Search activity'},
+    {f:'status',type:'select'}
+  ];
+  if(key==='expansion')cols.push({f:'subcon',type:'select'},{f:'team',type:'select'});
+  cols.push({f:'progress',type:'select'},{f:'remarks',type:'text',ph:'Search remarks'});
+  return cols;
+}
+
+function cellVal(r,f){return String(r?.[f]??'').trim();}
+
+function filterOptions(f,rows){
+  const base=f==='status'?[...STATUS_LIST]:f==='subcon'?[...SUBCON_LIST]:f==='team'?[...TEAM_LIST]:[];
+  const seen=new Set(base),extra=[];
+  let hasBlank=false;
+  rows.forEach(r=>{const v=cellVal(r,f);if(!v){hasBlank=true;return;}if(!seen.has(v)){seen.add(v);extra.push(v);}});
+  if(f==='progress')extra.sort((a,b)=>Number(a)-Number(b));else extra.sort();
+  return {values:[...base,...extra],hasBlank};
+}
+
+function renderFilterRow(key,rows){
+  const fs=_colFilter[key];
+  const cells=weeklyColumns(key).map(c=>{
+    const cur=fs[c.f]||'';
+    if(c.type==='text')
+      return `<th><input type="search" class="col-filter${cur?' on':''}" data-col-filter="${key}" data-field="${c.f}" value="${esc(cur)}" placeholder="${c.ph}" autocomplete="off"></th>`;
+    const {values,hasBlank}=filterOptions(c.f,rows);
+    if(cur&&cur!=='__blank__'&&!values.includes(cur))values.push(cur);
+    const opts=`<option value="">All</option>`
+      +((hasBlank||cur==='__blank__')?`<option value="__blank__" ${cur==='__blank__'?'selected':''}>(Blank)</option>`:'')
+      +values.map(v=>`<option value="${esc(v)}" ${cur===v?'selected':''}>${esc(c.f==='progress'?v+'%':v)}</option>`).join('');
+    return `<th><select class="col-filter${cur?' on':''}" data-col-filter="${key}" data-field="${c.f}">${opts}</select></th>`;
+  }).join('');
+  const any=Object.values(fs).some(Boolean);
+  return `<tr class="filter-row">${cells}<th><button class="clear-filters" data-clear-filters="${key}" ${any?'':'disabled'}>Clear filters</button></th></tr>`;
+}
+
+function rowMatches(key,r){
+  const fs=_colFilter[key];
+  return weeklyColumns(key).every(c=>{
+    const want=fs[c.f];
+    if(!want)return true;
+    const v=cellVal(r,c.f);
+    if(c.type==='text')return v.toLowerCase().includes(want.toLowerCase().trim());
+    if(want==='__blank__')return v==='';
+    return v===want;
+  });
+}
+
+// Shows/hides rows in place (no re-render, so typing in a filter box keeps focus)
+function applyColumnFilters(key){
+  const card=document.querySelector(`[data-weekly-card="${key}"]`);
+  if(!card)return;
+  const rows=data.weekly[key]||[];
+  const visible=[];
+  let total=0;
+  card.querySelectorAll('tbody tr[data-row]').forEach(tr=>{
+    total++;
+    const r=rows[Number(tr.dataset.row)];
+    const show=!!r&&rowMatches(key,r);
+    tr.style.display=show?'':'none';
+    if(show)visible.push(r);
+  });
+  const anyCol=Object.values(_colFilter[key]).some(Boolean);
+  const weekVal=_weekFilter[key]||'';
+  card.querySelector('.empty').style.display=visible.length?'none':'block';
+  card.querySelector('.weekly-summary').innerHTML=renderWeeklySummary(visible);
+  card.querySelectorAll('.col-filter').forEach(el=>el.classList.toggle('on',!!_colFilter[key][el.dataset.field]));
+  const btn=card.querySelector('[data-clear-filters]');if(btn)btn.disabled=!anyCol;
+  const cnt=card.querySelector('[data-visible-count]');
+  if(cnt)cnt.textContent=(weekVal||anyCol)
+    ?`Showing ${visible.length} of ${total} row(s)${weekVal?` for ${weekVal}`:''}${anyCol?' · column filters on':''}`
+    :'Showing all current rows';
+}
+
 // ── Weekly render ─────────────────────────────────────────────────────────
 const _weekFilter={expansion:'',newsites:'',ne25:''};
 
@@ -216,6 +309,9 @@ function allWeeks(key){
 
 function renderWeekly(){
   const host=document.getElementById('weekly-workstreams');
+  // remember a focused filter box so a re-render (e.g. live sync) doesn't steal focus
+  const ae=document.activeElement;
+  const refocus=ae&&ae.dataset&&ae.dataset.colFilter?{k:ae.dataset.colFilter,f:ae.dataset.field,pos:ae.tagName==='INPUT'?ae.selectionStart:null}:null;
   const configs=[['expansion','Expansion Site Progress'],['newsites','New Sites Progress'],['ne25','NE25 MW Implementation']];
   host.innerHTML=configs.map(([key,title])=>{
     const liveRows=data.weekly[key]||[];
@@ -243,9 +339,9 @@ function renderWeekly(){
         <td><input type="number" min="0" max="100" data-plan="progress" data-stream="${key}" data-i="${i}" value="${r.progress}" ${unlocked?'':'disabled'} style="width:75px;min-width:65px"></td>
         <td><input data-plan="remarks" data-stream="${key}" data-i="${i}" value="${esc(r.remarks)}" ${unlocked?'':'disabled'} placeholder="Remarks / next action"></td>
         <td><button class="remove" data-remove="${key}:${i}" ${unlocked?'':'disabled'}>Remove</button></td>`;
-      return `<tr>${base}${extra}${end}</tr>`;
+      return `<tr data-row="${i}">${base}${extra}${end}</tr>`;
     }).join('');
-    return `<article class="card weekly-workstream-card">
+    return `<article class="card weekly-workstream-card" data-weekly-card="${key}">
       <div class="card-head">
         <div><h3>${title} — Weekly Plan & Actuals</h3><span class="note">${liveRows.length} active row${liveRows.length===1?'':'s'} · ${histRows.length} in history</span></div>
         <div class="plan-toolbar">
@@ -256,25 +352,30 @@ function renderWeekly(){
       <div class="filter-bar">
         <label>Filter by week:</label>
         <select data-week-filter="${key}">${weekOpts}</select>
-        <span style="font-size:11px;color:var(--muted)">${filterVal?`Showing ${viewRows.length} row(s) for ${filterVal}`:'Showing all current rows'}</span>
+        <span style="font-size:11px;color:var(--muted)" data-visible-count></span>
       </div>
       <div class="table-wrap"><table class="plan-table">
-        <thead>${thead}</thead>
+        <thead>${thead}${renderFilterRow(key,viewRows)}</thead>
         <tbody>${tbody}</tbody>
       </table>
       <div class="empty" style="display:${viewRows.length?'none':'block'}">No rows to display.</div>
       </div>
-      <div class="weekly-summary">${renderWeeklySummary(liveRows)}</div>
+      <div class="weekly-summary"></div>
     </article>`;
   }).join('');
+  ['expansion','newsites','ne25'].forEach(applyColumnFilters);
+  if(refocus){
+    const el=host.querySelector(`.col-filter[data-col-filter="${refocus.k}"][data-field="${refocus.f}"]`);
+    if(el){el.focus();if(refocus.pos!=null&&el.setSelectionRange)el.setSelectionRange(refocus.pos,refocus.pos);}
+  }
   document.getElementById('weeklyLockBanner').style.display=unlocked?'none':'block';
   document.querySelectorAll('select.status-sel').forEach(applyStatusColor);
 }
 
 function renderWeeklySummary(rows){
-  const counts={Planned:0,Ongoing:0,Done:0,'On Hold':0,Delayed:0,Other:0};
+  const counts={Planned:0,Ongoing:0,Done:0,'Pre-PAT':0,PAT:0,'On Hold':0,Delayed:0,Other:0};
   rows.forEach(r=>{if(counts[r.status]!==undefined)counts[r.status]++;else counts.Other++;});
-  const colors={Planned:'#1a56c4',Ongoing:'#7c5100',Done:'#1a6b30','On Hold':'#6b21a8',Delayed:'#991b1b',Other:'#475569'};
+  const colors={Planned:'#1a56c4',Ongoing:'#7c5100',Done:'#1a6b30','Pre-PAT':'#075985',PAT:'#3730a3','On Hold':'#6b21a8',Delayed:'#991b1b',Other:'#475569'};
   return Object.entries(counts).map(([k,v])=>`<div class="metric"><div class="label">${k}</div><div class="num" style="color:${colors[k]||'#092b5c'}">${v}</div><div class="pct">row(s)</div></div>`).join('');
 }
 
@@ -297,6 +398,12 @@ document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{
 // ── Event: input (regular fields) ─────────────────────────────────────────
 document.addEventListener('input',e=>{
   const t=e.target;
+  // column filters are view-only → allowed while locked
+  if(t.dataset.colFilter){
+    _colFilter[t.dataset.colFilter][t.dataset.field]=t.value;
+    applyColumnFilters(t.dataset.colFilter);
+    return;
+  }
   if(!unlocked)return;
   if(t.dataset.plan){
     const i=Number(t.dataset.i),field=t.dataset.plan,key=t.dataset.stream;
@@ -314,6 +421,17 @@ document.addEventListener('input',e=>{
 // ── Event: change (selects & number fields) ───────────────────────────────
 document.addEventListener('change',e=>{
   const t=e.target;
+  // view-only filters → allowed while locked
+  if(t.dataset.weekFilter!==undefined){
+    _weekFilter[t.dataset.weekFilter]=t.value;
+    renderWeekly();
+    return;
+  }
+  if(t.dataset.colFilter){
+    _colFilter[t.dataset.colFilter][t.dataset.field]=t.value;
+    applyColumnFilters(t.dataset.colFilter);
+    return;
+  }
   if(!unlocked)return;
   if(t.dataset.total){
     const key=t.dataset.total;data[key].total=Math.max(0,Number(t.value)||0);data[key].stages[0][1]=data[key].total;renderDashboard(key);
@@ -328,9 +446,6 @@ document.addEventListener('change',e=>{
     }
     if(field==='status'){applyStatusColor(t);}
     renderWeekly();
-  } else if(t.dataset.weekFilter!==undefined){
-    _weekFilter[t.dataset.weekFilter]=t.value;
-    renderWeekly();
   } else if(t.dataset.ne25monthly){
     if(!data.ne25monthly)data.ne25monthly={planned:0,actual:0};
     data.ne25monthly[t.dataset.ne25monthly]=Math.max(0,Number(t.value)||0);
@@ -341,6 +456,12 @@ document.addEventListener('change',e=>{
 // ── Event: autocomplete clicks & keyboard ────────────────────────────────
 document.addEventListener('click',e=>{
   const t=e.target;
+  // clear column filters (allowed while locked)
+  if(t.dataset.clearFilters){
+    _colFilter[t.dataset.clearFilters]={};
+    renderWeekly();
+    return;
+  }
   // dropdown option click
   if(t.classList.contains('siteid-option')){
     const wrap=t.closest('.siteid-wrap');
