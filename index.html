@@ -17,7 +17,7 @@
 .siteid-option:hover,.siteid-option.active{background:#e8f0fe;color:var(--navy);font-weight:700}
 /* ── Status badge colors ── */
 .status-badge{display:inline-block;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap;letter-spacing:.2px}
-.status-PlanMonthly Progress Reports{background:#e8f0fe;color:#1a56c4;border:1px solid #b6d0f7}
+.status-Planned{background:#e8f0fe;color:#1a56c4;border:1px solid #b6d0f7}
 .status-Ongoing{background:#fff3cd;color:#7c5100;border:1px solid #ffd166}
 .status-Done{background:#d4edda;color:#1a6b30;border:1px solid #7fcf97}
 .status-PrePAT{background:#e0f2fe;color:#075985;border:1px solid #7dd3fc}
@@ -29,7 +29,7 @@
 .status-NotStarted{background:#f1f5f9;color:#475569;border:1px solid #cbd5e1}
 /* status select coloring */
 select.status-sel{font-weight:700;border-radius:6px}
-select.status-sel.s-PlanMonthly Progress Reports{background:#e8f0fe;color:#1a56c4;border-color:#b6d0f7}
+select.status-sel.s-Planned{background:#e8f0fe;color:#1a56c4;border-color:#b6d0f7}
 select.status-sel.s-Ongoing{background:#fff3cd;color:#7c5100;border-color:#ffd166}
 select.status-sel.s-Done{background:#d4edda;color:#1a6b30;border-color:#7fcf97}
 select.status-sel.s-PrePAT{background:#e0f2fe;color:#075985;border-color:#7dd3fc}
@@ -45,29 +45,29 @@ select.status-sel.s-NotStarted{background:#f1f5f9;color:#475569;border-color:#cb
 .plan-table .col-filter.on{border-color:var(--blue);background:#eef5ff;box-shadow:0 0 0 2px rgba(8,104,215,.15);font-weight:700}
 .clear-filters{border:1px solid #b6c8e0;background:#fff;color:var(--navy);border-radius:6px;padding:5px 8px;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap}
 .clear-filters:disabled{opacity:.45;cursor:default}
-.monthly-block{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:14px}.monthly-block-head{grid-column:1/-1;padding:11px 15px;background:linear-gradient(100deg,#082858,#0b468d);display:flex;justify-content:space-between;align-items:center}.monthly-block-head h3{font-size:13px;margin:0;color:#fff;text-transform:uppercase;letter-spacing:.35px}.monthly-block-head span{font-size:12px;color:#dceaff;font-weight:700}.monthly-kpi{background:var(--card);padding:18px 22px;border-right:1px solid var(--line)}.monthly-kpi:last-child{border-right:0}.monthly-kpi .mk-label{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:#51627c;font-weight:800;margin-bottom:6px}.monthly-kpi .mk-num{font-size:36px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1}.monthly-kpi .mk-sub{font-size:11px;color:var(--muted);margin-top:4px}.monthly-kpi .mk-bar{height:5px;background:#e9eef6;border-radius:8px;overflow:hidden;margin-top:10px}.monthly-kpi .mk-bar span{display:block;height:100%;border-radius:8px}.mk-planMonthly Progress Reports .mk-num{color:#0868d7}.mk-actual .mk-num{color:#299b42}
+.monthly-block{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:14px}.monthly-block-head{grid-column:1/-1;padding:11px 15px;background:linear-gradient(100deg,#082858,#0b468d);display:flex;justify-content:space-between;align-items:center}.monthly-block-head h3{font-size:13px;margin:0;color:#fff;text-transform:uppercase;letter-spacing:.35px}.monthly-block-head span{font-size:12px;color:#dceaff;font-weight:700}.monthly-kpi{background:var(--card);padding:18px 22px;border-right:1px solid var(--line)}.monthly-kpi:last-child{border-right:0}.monthly-kpi .mk-label{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:#51627c;font-weight:800;margin-bottom:6px}.monthly-kpi .mk-num{font-size:36px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1}.monthly-kpi .mk-sub{font-size:11px;color:var(--muted);margin-top:4px}.monthly-kpi .mk-bar{height:5px;background:#e9eef6;border-radius:8px;overflow:hidden;margin-top:10px}.monthly-kpi .mk-bar span{display:block;height:100%;border-radius:8px}.mk-planned .mk-num{color:#0868d7}.mk-actual .mk-num{color:#299b42}
 .filter-bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px 14px;background:#f0f4fb;border-bottom:1px solid var(--line)}.filter-bar label{font-size:11px;font-weight:800;color:#5b6b82}.filter-bar select,.filter-bar input{font-size:11px;padding:5px 8px;border:1px solid #cfd9e7;border-radius:6px;background:#fff;color:var(--ink)}.filter-bar .btn{padding:6px 12px;font-size:11px}
 /* ── Monthly Progress Reports reports ── */
-.Monthly Progress Reports-card{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:16px}
-.Monthly Progress Reports-head{padding:12px 16px;background:linear-gradient(100deg,#082858,#0b468d);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-.Monthly Progress Reports-head h3{margin:0;font-size:13px;color:#fff;text-transform:uppercase;letter-spacing:.35px}
-.Monthly Progress Reports-head span{font-size:11px;color:#dceaff;font-weight:700}
-table.Monthly Progress Reports{border-collapse:collapse;width:100%;font-size:12px}
-table.Monthly Progress Reports th{background:#0b376f;color:#fff;text-align:center;font-weight:700;padding:8px 10px;border:1px solid #1b4a86;white-space:nowrap}
-table.Monthly Progress Reports th.left{text-align:left}
-table.Monthly Progress Reports th small{display:block;font-size:10px;font-weight:500;opacity:.8;margin-top:2px;letter-spacing:.2px}
-table.Monthly Progress Reports thead tr+tr th{background:#164a85;font-size:11px;font-weight:600;padding:6px 8px}
-table.Monthly Progress Reports th.mon{background:#0a4a8f}
-table.Monthly Progress Reports th.cur{background:#061f45}
-table.Monthly Progress Reports thead tr+tr th.cur{background:#0b3366}
-table.Monthly Progress Reports td{padding:8px 10px;border:1px solid #e3eaf4;text-align:center;font-variant-numeric:tabular-nums;white-space:nowrap}
-table.Monthly Progress Reports td.task{text-align:left;font-weight:700;color:var(--navy)}
-table.Monthly Progress Reports td.mon{background:#f4f8fd;font-weight:700}
-table.Monthly Progress Reports td.cur{background:#e8eef9}
-table.Monthly Progress Reports td.dash{color:#9aa8bb}
-table.Monthly Progress Reports td.ach{min-width:110px}
-table.Monthly Progress Reports td.ach b{color:var(--navy)}
-.Monthly Progress Reports-foot{padding:9px 14px;font-size:11px;color:var(--muted);border-top:1px solid var(--line);background:#f8faff;line-height:1.5}
+.ned-card{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:16px}
+.ned-head{padding:12px 16px;background:linear-gradient(100deg,#082858,#0b468d);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.ned-head h3{margin:0;font-size:13px;color:#fff;text-transform:uppercase;letter-spacing:.35px}
+.ned-head span{font-size:11px;color:#dceaff;font-weight:700}
+table.ned{border-collapse:collapse;width:100%;font-size:12px}
+table.ned th{background:#0b376f;color:#fff;text-align:center;font-weight:700;padding:8px 10px;border:1px solid #1b4a86;white-space:nowrap}
+table.ned th.left{text-align:left}
+table.ned th small{display:block;font-size:10px;font-weight:500;opacity:.8;margin-top:2px;letter-spacing:.2px}
+table.ned thead tr+tr th{background:#164a85;font-size:11px;font-weight:600;padding:6px 8px}
+table.ned th.mon{background:#0a4a8f}
+table.ned th.cur{background:#061f45}
+table.ned thead tr+tr th.cur{background:#0b3366}
+table.ned td{padding:8px 10px;border:1px solid #e3eaf4;text-align:center;font-variant-numeric:tabular-nums;white-space:nowrap}
+table.ned td.task{text-align:left;font-weight:700;color:var(--navy)}
+table.ned td.mon{background:#f4f8fd;font-weight:700}
+table.ned td.cur{background:#e8eef9}
+table.ned td.dash{color:#9aa8bb}
+table.ned td.ach{min-width:110px}
+table.ned td.ach b{color:var(--navy)}
+.ned-foot{padding:9px 14px;font-size:11px;color:var(--muted);border-top:1px solid var(--line);background:#f8faff;line-height:1.5}
 .sw-card input{width:64px;padding:5px 6px;border:1px solid #cfd9e7;border-radius:6px;text-align:center;font-size:12px;background:#fff;color:var(--ink)}
 .sw-card input:disabled{background:#f3f6fa;color:#64748b}
 @media(min-width:1101px){.metrics.m6{grid-template-columns:repeat(6,minmax(105px,1fr))}}
@@ -79,16 +79,16 @@ table.Monthly Progress Reports td.ach b{color:var(--navy)}
 <body>
 <header class="topbar"><div class="brand">SLT-MOBITEL<small>Network Deployment Progress</small></div><div class="heading"><h1>SITE PROGRESS CONTROL DASHBOARD</h1><p>Implementation status, site pipeline and weekly execution plan</p></div><div class="zte">ZTE</div></header>
 <main class="wrap">
-<div class="toolbar"><div class="tabs"><button class="tab active" data-tab="expansion">Expansion + New sites + L850 Progress</button><button class="tab" data-tab="ne25">NE25 MW Implementation</button><button class="tab" data-tab="weekly">Weekly Plan & Actuals</button><button class="tab" data-tab="Monthly Progress Reports">Monthly Progress Reports</button></div><span class="lockstate"><i class="statusdot" id="statusdot"></i><span id="locktext">Editing locked</span></span><button class="btn primary" id="unlockBtn">🔒 Unlock Editing</button><button class="btn" id="saveBtn" disabled>Save Changes</button><button class="btn" id="exportBtn">Export Data</button><button class="btn" id="printBtn">Print</button></div>
+<div class="toolbar"><div class="tabs"><button class="tab active" data-tab="expansion">Expansion + New sites + L850 Progress</button><button class="tab" data-tab="ne25">NE25 MW Implementation</button><button class="tab" data-tab="weekly">Weekly Plan & Actuals</button><button class="tab" data-tab="ned">Monthly Progress Reports</button></div><span class="lockstate"><i class="statusdot" id="statusdot"></i><span id="locktext">Editing locked</span></span><button class="btn primary" id="unlockBtn">🔒 Unlock Editing</button><button class="btn" id="saveBtn" disabled>Save Changes</button><button class="btn" id="exportBtn">Export Data</button><button class="btn" id="printBtn">Print</button></div>
 <section class="panel active" id="panel-expansion">
-<div class="section-title"><div><h2>Expansion + New sites + L850 Progress</h2><p>CombiMonthly Progress Reports overview of expansion, new and L850 sites · Percentages and summary tables update automatically from site counts.</p></div><span class="note">Reporting dashboard · editable after password verification</span></div>
+<div class="section-title"><div><h2>Expansion + New sites + L850 Progress</h2><p>Combined overview of expansion, new and L850 sites · Percentages and summary tables update automatically from site counts.</p></div><span class="note">Reporting dashboard · editable after password verification</span></div>
 <div class="metrics m6" id="metrics-expansion"></div><div class="grid2"><article class="card"><div class="card-head"><h3>Expansion + New sites + L850 Status Summary</h3><span class="note">Live calculation</span></div><div class="table-wrap"><table><thead><tr><th>Stage</th><th class="num">Site Count</th><th class="num">% of Total Sites</th></tr></thead><tbody id="summary-expansion"></tbody></table></div></article><article class="card"><div class="card-head"><h3>Overall Progress</h3><span class="note">PAT approved vs total scope</span></div><div class="card-body"><div class="progress-layout" id="progress-expansion"></div></div></article></div><article class="card"><div class="card-head"><h3>Key Highlights</h3></div><div class="card-body"><div class="highlights" id="highlights-expansion"></div></div></article>
 <div class="card" style="margin-top:14px"><div class="card-head"><h3>Edit Expansion + New sites + L850 Site Counts</h3><span class="note">Counts are entered manually; all percentages and visuals recalculate.</span></div><div class="editable-grid" id="fields-expansion"></div></div><div id="weeklystage-expansion"></div>
 </section>
 <section class="panel" id="panel-ne25"><div class="section-title"><div><h2>NE25 MW Implementation Update</h2><p>Overview of project progress · site counts, percentages and implementation pipeline.</p></div></div><div id="ne25-monthly-block"></div><div class="metrics" id="metrics-ne25"></div><div class="grid2"><article class="card"><div class="card-head"><h3>Implementation Pipeline Funnel</h3></div><div class="table-wrap"><table><thead><tr><th>Stage</th><th class="num">Site Count</th><th class="num">% of Total Scope</th></tr></thead><tbody id="summary-ne25"></tbody></table></div></article><article class="card"><div class="card-head"><h3>Progress at a Glance</h3></div><div class="card-body"><div class="progress-layout" id="progress-ne25"></div></div></article></div><article class="card"><div class="card-head"><h3>Key Highlights</h3></div><div class="card-body"><div class="highlights" id="highlights-ne25"></div></div></article><div class="card" style="margin-top:14px"><div class="card-head"><h3>Edit NE25 MW Project Counts</h3><span class="note">Update counts to refresh the dashboard.</span></div><div class="editable-grid" id="fields-ne25"></div></div><div id="weeklystage-ne25"></div></section>
 <section class="panel" id="panel-weekly"><div class="section-title"><div><h2>Weekly Plan & Actuals</h2><p>Separate weekly execution trackers for each workstream.</p></div></div><div class="locked-banner" id="weeklyLockBanner">Editing is locked. You can still filter and view rows using the week filter and the column filters. Select <b>Unlock Editing</b> and enter the dashboard password to add or update weekly plans.</div>
 <div id="weekly-workstreams" class="weekly-workstreams"></div></section>
-<section class="panel" id="panel-Monthly Progress Reports"><div class="section-title"><div><h2>Monthly Progress Reports — Implementation Progress Reports</h2><p>Monthly summary of the Expansion + New sites + L850 and NE25 MW tabs · updates automatically when those tabs are updated.</p></div><span class="note" id="Monthly Progress Reports-asof"></span></div><div id="Monthly Progress Reports-reports"></div></section>
+<section class="panel" id="panel-ned"><div class="section-title"><div><h2>Monthly Progress Reports — Implementation Progress Reports</h2><p>Monthly summary of the Expansion + New sites + L850 and NE25 MW tabs · updates automatically when those tabs are updated.</p></div><span class="note" id="ned-asof"></span></div><div id="ned-reports"></div></section>
 <div class="footer">Site Progress Control Dashboard · <span style="color:#299b42;font-weight:700">🟢 Live Sync Active</span></div>
 </main>
 <div class="modal-backdrop" id="passwordModal"><div class="modal"><h3>Unlock Dashboard Editing</h3><p>Enter the authorized password to edit site counts and weekly plan details.</p><label for="passwordInput" style="font-size:12px;font-weight:700">Dashboard password</label><input type="password" id="passwordInput" autocomplete="current-password" placeholder="Enter password" /><div class="error" id="passwordError"></div><div class="modal-actions"><button class="btn" id="cancelUnlock">Cancel</button><button class="btn primary" id="confirmUnlock">Unlock Editing</button></div></div></div>
@@ -114,7 +114,7 @@ const dbRef = ref(db, 'dashboardData');
 const EXPANSION_SITE_IDS=["ANABE2","ANANU2","ANANU3","ANANU8","ANATK1","ANEPP1","ANGAK1","ANGBW3","ANKEK7","ANKLY1","ANKRL1","ANKUR2","ANMAL1","ANMIH2","ANMOR2","ANNAW1","ANPND1","ANPOT1","ANPUB1","ANPUJ2","ANPUJ2_L850","ANRAT3","ANSRA1","ANTAL1","ANTWN3","ANTWN7","BDBAT1","BDMAH5","BDMAH5_L850","BTERA3","BTVAN1","POTTO1","JFARI2","JFCHU2","JFJAF6","JFJAF6_L850","JFKAR1","JFKOK1","JFKOK1_L850","JFMAN3","JFNAL1","JFSAR1","JFURU2","JFVAD1","BGHEM1","BGHIN2","BGMAW1","BGMAW1_L850","BGMAW6","BNKIL5","BNNAC1","KUABA1","KUBAL2","KUBAL2_L850","KUKTG1","KUKTW1","KUMAW1","KUMAW2","KUMAW3","KUMHN1","KUNIK2","KUPPG1","KUREK1","KUULP1","KUWAR2","KUWEU2","KYAGM1","KYAMP1","KYANI3","KYBAH3","KYDEL2","KYGAM2","KYGLG3","KYGLG3_L850","KYGUN1","KYHAS4","KYKAT5","KYKUN3","KYMOR1","KYMOR1_L850","KYNAR1","KYNAW4","KYNAW4_L850","KYNIY1","KYPOT2","KYPRI1","KYRND1","KYTAL3","KYTWN8","KYUOP5","KYVEL1","LAN032","LKY017","LKY018","LKY021","LPO010","LTR009","LTR010","LTR011","MLHAT2","MLHET1","MLKUB1","MLMAT3","MLMAT8","MLNAU1","MRMAN7","MRTLV1","NULOO1","POATG1","POBAK1","POHIN1","POPOL1","POPOL3","POSIN1","POTHP1","PTGAL1","PTKLP1","PTKLP2","PTMAL1","PTMAM1","PTMDP1","PTMDP1_L850","PTNAG1","PTPUD1","PTPUT8","PTPUT8_L850","PTSER1","PTSER1_L850","TRAND2","TRKIN1","TRKIN2","TRKIN3","TRKIN7","TRMOR1","TRMUT4","TRPUL3","TRSIR1","TRTRI3","VUMAH1","VUMonthly Progress Reports2","VUNEL1","VUPDK1"];
 const NEW_SITE_IDS=["ANABE4","ANKAL1","ANKRI2","BTTRM1","KUPTH1","KUWEU3","KYHND1","KYKEN3","KYMAD3","KYPLW2","KYPLW3","KYUTW1","LBT009","LKU033","LKY020","LKY028","LPT003","LPT004","LPT005","POASL1","POBOA1","POGLT1"];
 const SITE_IDS = {
-  // Expansion + New sites + L850 share one combiMonthly Progress Reports Site ID list
+  // Expansion + New sites + L850 share one combined Site ID list
   expansion: [...new Set([...EXPANSION_SITE_IDS,...NEW_SITE_IDS])],
   ne25: ["AMMAL1-AMDEE1","AMPAN2-AMOKA1","ANMOR1-ANDEK1","ANMSP1-ANJAY1","ANNOC2-ANHUN1","ANPSW1-ANGAM1","ANRAT1-ANKDW1","ANRAT2-ANRAT1","ANRAT3-ANRAT1","ANTHU1-ANSRA1","ANTHU2-ANNAL1","ANTIR1-ANSIV1","ANWAH1-ANKIR1","ANWIL1-ANRNW2","BDDMB1-BDBRL2","BDDOL1-BDBEL3","BDKEN2-BDBAD2","BDLUN1-BDHOP1","BDMEE1-BDKOM1","BDTIS1-BDAND1","CBHAN4-CBHAN1","CBPAD3-CBPAD1","CBWAG1-CBLAB1","COL495-COL037","GLHIY1-GLAKM1","GLHPT1-GLDEL1","GLNEL1-GLLAN1","GLNUG1-GLBAT1","GLTHG1-GLNVG1","GLUDU1-GLMAT1","GLUDU3-GLHOM1","GMKDR1-GMAKK1","GMNIT3-GMHAK1","GMWEW1-GMDAN1","GMWGM1-GMNAD1","HMAMB5-HMAMB2","HMHAN1-HMANG2","HMKIR1-HMBUN1","HMKRM1-HMHUL2","HMNIH1-HMBEL5","HMTRM1-HMMEE2","HMWEL1-HMBAD1","HMWLG1-HMKRM1","KGATU1-KGARD1","KGGON2-GMNAD1","KGHIN1-KGDIP2","KGMOR1-KGHET1","KGNLM1-KGKRD1","KGPEL1-KGKAR1","KLING2-KLHAN1","KLNAG1-KLBOM1","KLPAY6-KLPAY1","KLPET1-KLAGA2","KLTYT1-GLHIN2","KLWEW1-KLHED1","KUGUR1-KUEMB1","KUKON1-KUAMB1","KUMET2-KUHUM1","KUMUD1-KUGAL2","KUPDW1-KUHMN1","KURID1-KUMDR1","KUTLW1-KUMRG1","KUYAP1-KUMRG1","KUYAP1-KUNAG1","KYAKU2-KYAKU1","KYMAR2-KYBWL1","KYMED2-KYMAI1","KYNAR1-KYGOO1","KYPUT1-KYPLW1","KYUDA1-KYMDU1","MLANK3-MLANK1","MLDAM3-MLDAM1","MLMAT5-MLHPU1","MLNAL1-MLAND1","MLNAL1-MLKUB1","MOHAN2-MOATH2","MOKTG1-MODIY1","MOKUD1-MOBHR1","MOMTK1-MOBUT1","MOPEL4-MOPEL2","MOSIY1-MOMUT2","MOTKU1-HMMEE2","MRVEP1-MRMUR1","MTMUL1-MTDIY1","MTPNT1-MTKOK1","MTRAD2-MTBAT1","MTRAN1-MTKAM3","MTRDW1-MTMUL1","MTSIY1-MTDEL1","MUTHU3-MUTHU1","NUHAK1-BDBOR1","NUMAS1-MAS_SLT","NURIK2-NURIK1","NUTHA1-NUPAT1","NUVIC1-KYMAI1","NUWAL2-NUWAL1","POBAK1-POATG1","POHAB1-ANMEE1","POTHA1-POSOM2","POWLI1-PODIY2","PTKAR1-PTIHA2","PTURI2-PTMUS1","PTWLP1-PTAND1","RTEHA4-RTEHA1","RTENA1-MTAND1","RTENA1-MTMDP1","RTERP1-RTDEM1","RTGAM1-HMGAL1","RTKOL2-RTKOL1","RTKUR1-RTERA1","RTNIV1-RTKLB1","RTNIV1-RTKRW1","RTPEB1-RTKAL1","RTPEL2-RTHIR1","RTRAK2-RTRAK1","RTRAS1-RTOLU1","RTSIR1-RTRTG1","RTUDA3-RTPAH1","RTWAT1-RTNIV1","RTWEL1-RTDAH1","RTWEL1-RTKAP1","RTWEW2-RTGAL1","RTWTH1-RTKAL1","RTWTH1-RTRAM1","TRGOM2-ANWHK1","TRMED1-TRGOM2","VUPOO1-VUAWA1","ZDOM03-GMBGK1","ZNUG09-COL046"]
 };
@@ -122,9 +122,9 @@ const SITE_IDS = {
 const STREAMS=['expansion','ne25'];
 // Scope multiplier for specific stages (NE25 MW SAR is counted per link end → 2 × project scope, as in the Monthly Progress Reports report sheet)
 const SCOPE_FACTOR={ne25:{'SAR Submitted':2,'SAR Approved':2}};
-const STATUS_LIST = ['PlanMonthly Progress Reports','Ongoing','Done','Pre-PAT','PAT','On Hold','Delayed','Rejected','Mobitel FB Pending','Not Started'];
+const STATUS_LIST = ['Planned','Ongoing','Done','Pre-PAT','PAT','On Hold','Delayed','Rejected','Mobitel FB Pending','Not Started'];
 const STATUS_CLASS = {
-  'PlanMonthly Progress Reports':'s-PlanMonthly Progress Reports','Ongoing':'s-Ongoing','Done':'s-Done',
+  'Planned':'s-Planned','Ongoing':'s-Ongoing','Done':'s-Done',
   'Pre-PAT':'s-PrePAT','PAT':'s-PAT',
   'On Hold':'s-OnHold','Delayed':'s-Delayed','Rejected':'s-Rejected',
   'Mobitel FB Pending':'s-PendingFeedback','Not Started':'s-NotStarted'
@@ -137,10 +137,10 @@ const TEAM_LIST=['Amila','Senarath','Bhanuka','Eranda','Rangana','Sandaruwan','V
 function currentWeekLabel(){return 'W'+isoWeekOf(new Date()).week+' Plan';}
 const defaultData={
   // defaults = old Expansion defaults + old New Sites defaults
-  expansion:{title:'Expansion + New sites + L850 Progress',total:93,stages:[['Total Site Count',93,'#1976d2'],['RFI',88,'#0755c9'],['TI Completed',87,'#2e9b36'],['CommissioMonthly Progress Reports',87,'#148a73'],['PRE PAT Submitted',85,'#ff7900'],['PAT Approved',78,'#299b42'],['SAR Submitted',0,'#1976d2'],['SAR Approved',0,'#148a73'],['PAC Submitted',0,'#ff7900'],['PAC Approved',0,'#078b91'],['Rejected',5,'#d7192d'],['Mobitel FB Pending',2,'#ff7900']]},
+  expansion:{title:'Expansion + New sites + L850 Progress',total:93,stages:[['Total Site Count',93,'#1976d2'],['RFI',88,'#0755c9'],['TI Completed',87,'#2e9b36'],['Commissioned',87,'#148a73'],['PRE PAT Submitted',85,'#ff7900'],['PAT Approved',78,'#299b42'],['SAR Submitted',0,'#1976d2'],['SAR Approved',0,'#148a73'],['PAC Submitted',0,'#ff7900'],['PAC Approved',0,'#078b91'],['Rejected',5,'#d7192d'],['Mobitel FB Pending',2,'#ff7900']]},
   ne25:{title:'NE25 MW Implementation Update',total:129,stages:[['Total Project Scope',129,'#0755c9'],['Material Requested from Mobitel',108,'#1976d2'],['Material Collected from Mobitel WH',92,'#078b91'],['Installation Completed',54,'#ff7900'],['Traffic Transferred',45,'#299b42'],['PAT Submitted',40,'#ff7900'],['PAT Approved',11,'#299b42'],['SAR Submitted',0,'#1976d2'],['SAR Approved',0,'#148a73'],['PAC Approved',0,'#078b91']]},
-  weekly:{expansion:[{week:currentWeekLabel(),date:'',siteId:'',activity:'',status:'PlanMonthly Progress Reports',subcon:'',team:'',progress:0,remarks:''}],ne25:[{week:currentWeekLabel(),date:'',siteId:'',activity:'',status:'PlanMonthly Progress Reports',progress:0,remarks:''}]},
-  ne25monthly:{planMonthly Progress Reports:0,actual:0},
+  weekly:{expansion:[{week:currentWeekLabel(),date:'',siteId:'',activity:'',status:'Planned',subcon:'',team:'',progress:0,remarks:''}],ne25:[{week:currentWeekLabel(),date:'',siteId:'',activity:'',status:'Planned',progress:0,remarks:''}]},
+  ne25monthly:{planned:0,actual:0},
   weeklyHistory:{expansion:[],ne25:[]},
   stageWeekly:{expansion:{},ne25:{}},
   migration:{newsitesMerged:true}
@@ -148,7 +148,7 @@ const defaultData={
 
 let data=structuredClone(defaultData),unlocked=false;
 
-// ── One-time merge: old "New Sites" data → combiMonthly Progress Reports Expansion stream ──────
+// ── One-time merge: old "New Sites" data → combined Expansion stream ──────
 // MIGRATE-START
 function toArr(v){if(Array.isArray(v))return v;if(v&&typeof v==='object')return Object.values(v);return [];}
 function isBlankRow(r){return !r||(!String(r.siteId??'').trim()&&!String(r.activity??'').trim()&&!String(r.date??'').trim()&&!String(r.remarks??'').trim());}
@@ -235,10 +235,10 @@ onValue(dbRef,(snapshot)=>{
       if(!parsed.weekly||Array.isArray(parsed.weekly))parsed.weekly=structuredClone(defaultData.weekly);
       for(const k of STREAMS)
         if(!Array.isArray(parsed.weekly[k]))parsed.weekly[k]=structuredClone(defaultData.weekly[k]);
-      if(!parsed.ne25monthly||typeof parsed.ne25monthly!=='object')parsed.ne25monthly={planMonthly Progress Reports:0,actual:0};
+      if(!parsed.ne25monthly||typeof parsed.ne25monthly!=='object')parsed.ne25monthly={planned:0,actual:0};
       if(!parsed.stageWeekly||typeof parsed.stageWeekly!=='object'||Array.isArray(parsed.stageWeekly))parsed.stageWeekly={expansion:{},ne25:{}};
       for(const k of STREAMS)if(!parsed.stageWeekly[k]||typeof parsed.stageWeekly[k]!=='object')parsed.stageWeekly[k]={};
-      parsed=seedMonthly Progress ReportsFromBook(parsed);
+      parsed=seedNedFromBook(parsed);
       // backfill subcon/team on existing expansion rows
       parsed.weekly.expansion=parsed.weekly.expansion.map(r=>({subcon:r.subcon||'',team:r.team||'',...r}));
       // migrate weeklyHistory
@@ -271,10 +271,10 @@ function statusClass(s){return STATUS_CLASS[s]||'s-NotStarted'}
 function renderMetrics(key){const d=data[key],st=stageData(key);document.getElementById('metrics-'+key).innerHTML=st.map(s=>`<div class="metric"><div class="label">${s.name}</div><div class="num" style="color:${s.color}">${fmt(s.count)}</div><div class="pct">${percent(s.count,s.scope)} of total</div><div class="bar"><span style="width:${Math.min(100,s.pct)}%;background:${s.color}"></span></div></div>`).join('')}
 function renderSummary(key){const d=data[key];document.getElementById('summary-'+key).innerHTML=stageData(key).map(s=>`<tr><td><span class="stage-name">${s.name}</span><div class="mini-bar"><span style="width:${Math.min(100,s.pct)}%;background:${s.color}"></span></div></td><td class="num"><b>${fmt(s.count)}</b></td><td class="num">${percent(s.count,s.scope)}</td></tr>`).join('')}
 function renderProgress(key){const d=data[key],st=stageData(key),approved=st.find(s=>s.name==='PAT Approved')||st[st.length-1],rejected=st.find(s=>s.name==='Rejected'),pending=st.find(s=>s.name.toLowerCase().includes('pending'));let parts=key==='ne25'?[{name:'PAT Approved',count:approved.count,color:'#299b42'},{name:'Ongoing',count:Math.max(0,d.total-approved.count),color:'#1685e8'}]:[{name:approved.name,count:approved.count,color:'#299b42'},{name:pending?.name||'In Progress',count:pending?.count??Math.max(0,d.total-approved.count-(rejected?.count||0)),color:'#ff7900'},{name:rejected?.name||'Remaining',count:rejected?.count??Math.max(0,d.total-approved.count-(pending?.count||0)),color:'#d7192d'}];let total=parts.reduce((a,b)=>a+b.count,0)||1,angle=0,grad=[];parts.forEach(p=>{const next=angle+p.count/total*360;grad.push(`${p.color} ${angle}deg ${next}deg`);angle=next});const pctApproved=percent(approved.count,d.total);document.getElementById('progress-'+key).innerHTML=`<div class="donut" style="background:conic-gradient(${grad.join(',')})"><div class="donut-center"><strong>${pctApproved}</strong><span>PAT Approved<br>of Total Scope</span></div></div><div class="legend">${parts.map(p=>`<div class="legend-row"><i class="swatch" style="background:${p.color}"></i><span>${p.name}</span><strong>${fmt(p.count)} <small style="color:#64748b;font-weight:500">(${percent(p.count,d.total)})</small></strong></div>`).join('')}</div>`}
-function renderHighlights(key){const d=data[key],st=stageData(key);let texts;if(key==='ne25'){texts=st.map(s=>({icon:s.i===0?'◉':s.i===1?'▤':s.i===2?'⬡':s.i===3?'⚒':s.i===4?'⇄':s.i===5?'➤':s.i===6?'👍':s.i===7?'📋':s.i===8?'✅':'🏁',text:`<b>${fmt(s.count)} sites (${percent(s.count,s.scope)})</b> ${s.name.toLowerCase()}`}))}else{texts=st.slice(1).map(s=>({icon:s.name.includes('Approved')?'👍':s.name==='Rejected'?'⊗':s.name.includes('Pending')?'◷':s.name==='RFI'?'◉':s.name==='TI Completed'?'⚒':s.name==='CommissioMonthly Progress Reports'?'⚙':'▤',text:`<b>${fmt(s.count)} sites (${percent(s.count,s.scope)})</b> ${s.name.toLowerCase()}`}))}document.getElementById('highlights-'+key).innerHTML=texts.map(t=>`<div class="highlight"><span class="hicon">${t.icon}</span><span>${t.text}</span></div>`).join('')}
+function renderHighlights(key){const d=data[key],st=stageData(key);let texts;if(key==='ne25'){texts=st.map(s=>({icon:s.i===0?'◉':s.i===1?'▤':s.i===2?'⬡':s.i===3?'⚒':s.i===4?'⇄':s.i===5?'➤':s.i===6?'👍':s.i===7?'📋':s.i===8?'✅':'🏁',text:`<b>${fmt(s.count)} sites (${percent(s.count,s.scope)})</b> ${s.name.toLowerCase()}`}))}else{texts=st.slice(1).map(s=>({icon:s.name.includes('Approved')?'👍':s.name==='Rejected'?'⊗':s.name.includes('Pending')?'◷':s.name==='RFI'?'◉':s.name==='TI Completed'?'⚒':s.name==='Commissioned'?'⚙':'▤',text:`<b>${fmt(s.count)} sites (${percent(s.count,s.scope)})</b> ${s.name.toLowerCase()}`}))}document.getElementById('highlights-'+key).innerHTML=texts.map(t=>`<div class="highlight"><span class="hicon">${t.icon}</span><span>${t.text}</span></div>`).join('')}
 function renderFields(key){const d=data[key];let html=`<div class="field"><label>Total ${key==='ne25'?'Project Scope':'Site Count'}</label><input type="number" min="0" data-total="${key}" value="${d.total}" ${unlocked?'':'disabled'}></div>`+d.stages.map((s,i)=>`<div class="field"><label>${s[0]}${((SCOPE_FACTOR[key]||{})[s[0]])?' (scope ×'+SCOPE_FACTOR[key][s[0]]+')':''}</label><input type="number" min="0" data-stage-key="${key}" data-stage-index="${i}" value="${s[1]}" ${i===0?'disabled':''} ${unlocked?'':'disabled'}></div>`).join('');document.getElementById('fields-'+key).innerHTML=html;}
-function renderNe25Monthly(){const t=ne25MonthTotals();const m={planMonthly Progress Reports:t.plan,actual:t.actual};const pct=m.planMonthly Progress Reports>0?Math.min(100,Math.round(m.actual/m.planMonthly Progress Reports*100)):0;document.getElementById('ne25-monthly-block').innerHTML=`<div class="monthly-block"><div class="monthly-block-head"><h3>📅 NE25 MW — This Month Execution Tracker</h3><span>${new Date().toLocaleDateString('en-US',{month:'long',year:'numeric'})}</span></div><div class="monthly-kpi mk-planMonthly Progress Reports"><div class="mk-label">This Month Plan</div><div class="mk-num">${m.planMonthly Progress Reports}</div><div class="mk-sub">Installation · total of weekly plans</div><div class="mk-bar"><span style="width:100%;background:#0868d7"></span></div></div><div class="monthly-kpi mk-actual"><div class="mk-label">This Month Actual</div><div class="mk-num">${m.actual}</div><div class="mk-sub">${pct}% completion rate</div><div class="mk-bar"><span style="width:${pct}%;background:#299b42"></span></div></div></div>`;}
-function renderDashboard(key){renderMetrics(key);renderSummary(key);renderProgress(key);renderHighlights(key);renderFields(key);renderMonthly Progress Reports()}
+function renderNe25Monthly(){const t=ne25MonthTotals();const m={planned:t.plan,actual:t.actual};const pct=m.planned>0?Math.min(100,Math.round(m.actual/m.planned*100)):0;document.getElementById('ne25-monthly-block').innerHTML=`<div class="monthly-block"><div class="monthly-block-head"><h3>📅 NE25 MW — This Month Execution Tracker</h3><span>${new Date().toLocaleDateString('en-US',{month:'long',year:'numeric'})}</span></div><div class="monthly-kpi mk-planned"><div class="mk-label">This Month Plan</div><div class="mk-num">${m.planned}</div><div class="mk-sub">Installation · total of weekly plans</div><div class="mk-bar"><span style="width:100%;background:#0868d7"></span></div></div><div class="monthly-kpi mk-actual"><div class="mk-label">This Month Actual</div><div class="mk-num">${m.actual}</div><div class="mk-sub">${pct}% completion rate</div><div class="mk-bar"><span style="width:${pct}%;background:#299b42"></span></div></div></div>`;}
+function renderDashboard(key){renderMetrics(key);renderSummary(key);renderProgress(key);renderHighlights(key);renderFields(key);renderNed()}
 
 // ── Status select coloring ────────────────────────────────────────────────
 function applyStatusColor(sel){
@@ -429,15 +429,15 @@ function renderWeekly(){
     const weekOpts='<option value="">Current week rows</option>'+weeks.map(w=>`<option value="${esc(w)}" ${filterVal===w?'selected':''}>${esc(w)}</option>`).join('');
     const isExp=key==='expansion';
     const thead=isExp
-      ?`<tr><th>Week / Plan</th><th>Plan Date</th><th>Site ID</th><th>PlanMonthly Progress Reports Activity</th><th>Actual Status</th><th>Subcon</th><th>Team</th><th>Progress %</th><th>Remarks / Next Action</th><th>Action</th></tr>`
-      :`<tr><th>Week / Plan</th><th>Plan Date</th><th>Site ID</th><th>PlanMonthly Progress Reports Activity</th><th>Actual Status</th><th>Progress %</th><th>Remarks / Next Action</th><th>Action</th></tr>`;
+      ?`<tr><th>Week / Plan</th><th>Plan Date</th><th>Site ID</th><th>Planned Activity</th><th>Actual Status</th><th>Subcon</th><th>Team</th><th>Progress %</th><th>Remarks / Next Action</th><th>Action</th></tr>`
+      :`<tr><th>Week / Plan</th><th>Plan Date</th><th>Site ID</th><th>Planned Activity</th><th>Actual Status</th><th>Progress %</th><th>Remarks / Next Action</th><th>Action</th></tr>`;
     const tbody=viewRows.map(r=>{
       const i=liveRows.indexOf(r);
       const base=`
         <td><input data-plan="week" data-stream="${key}" data-i="${i}" value="${esc(r.week)}" ${unlocked?'':'disabled'} placeholder="${currentWeekLabel()}"></td>
         <td><input type="date" data-plan="date" data-stream="${key}" data-i="${i}" value="${esc(r.date)}" ${unlocked?'':'disabled'}></td>
         <td>${makeSiteIdCell(key,i,r.siteId)}</td>
-        <td><input class="activity" data-plan="activity" data-stream="${key}" data-i="${i}" value="${esc(r.activity)}" ${unlocked?'':'disabled'} placeholder="PlanMonthly Progress Reports work"></td>
+        <td><input class="activity" data-plan="activity" data-stream="${key}" data-i="${i}" value="${esc(r.activity)}" ${unlocked?'':'disabled'} placeholder="Planned work"></td>
         <td><select class="status-sel ${statusClass(r.status)}" data-plan="status" data-stream="${key}" data-i="${i}" ${unlocked?'':'disabled'}>${STATUS_LIST.map(x=>`<option value="${x}" ${r.status===x?'selected':''}>${x}</option>`).join('')}</select></td>`;
       const extra=isExp?`
         <td><select data-plan="subcon" data-stream="${key}" data-i="${i}" ${unlocked?'':'disabled'} style="min-width:90px"><option value="">— Select —</option>${SUBCON_LIST.map(x=>`<option value="${x}" ${r.subcon===x?'selected':''}>${x}</option>`).join('')}<option value="__manual__" ${!SUBCON_LIST.includes(r.subcon)&&r.subcon?'selected':''}>Other…</option></select>${(!SUBCON_LIST.includes(r.subcon)&&r.subcon)?`<input data-plan="subcon" data-stream="${key}" data-i="${i}" value="${esc(r.subcon)}" ${unlocked?'':'disabled'} placeholder="Enter subcon" style="margin-top:3px;min-width:90px">`:''}</td>
@@ -480,9 +480,9 @@ function renderWeekly(){
 }
 
 function renderWeeklySummary(rows){
-  const counts={PlanMonthly Progress Reports:0,Ongoing:0,Done:0,'Pre-PAT':0,PAT:0,'On Hold':0,Delayed:0,Other:0};
-  rows.forEach(r=>{if(counts[r.status]!==undefiMonthly Progress Reports)counts[r.status]++;else counts.Other++;});
-  const colors={PlanMonthly Progress Reports:'#1a56c4',Ongoing:'#7c5100',Done:'#1a6b30','Pre-PAT':'#075985',PAT:'#3730a3','On Hold':'#6b21a8',Delayed:'#991b1b',Other:'#475569'};
+  const counts={Planned:0,Ongoing:0,Done:0,'Pre-PAT':0,PAT:0,'On Hold':0,Delayed:0,Other:0};
+  rows.forEach(r=>{if(counts[r.status]!==undefined)counts[r.status]++;else counts.Other++;});
+  const colors={Planned:'#1a56c4',Ongoing:'#7c5100',Done:'#1a6b30','Pre-PAT':'#075985',PAT:'#3730a3','On Hold':'#6b21a8',Delayed:'#991b1b',Other:'#475569'};
   return Object.entries(counts).map(([k,v])=>`<div class="metric"><div class="label">${k}</div><div class="num" style="color:${colors[k]||'#092b5c'}">${v}</div><div class="pct">row(s)</div></div>`).join('');
 }
 
@@ -492,7 +492,7 @@ const MONTH_SHORT=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','
 const Monthly Progress Reports_REPORTS={
   expansion:{title:'NE25 (TOR) Implementation Progress Report',src:'Expansion + New sites + L850 Progress',
     note:'PAT Submit follows the “PRE PAT Submitted” count.',
-    rows:[{id:'ti',label:'TI Completed',stage:'TI Completed'},{id:'comm',label:'CommissioMonthly Progress Reports',stage:'CommissioMonthly Progress Reports'},{id:'patsub',label:'PAT Submit',stage:'PRE PAT Submitted'},{id:'patapp',label:'PAT Approve',stage:'PAT Approved'},{id:'sarsub',label:'SAR Submit',stage:'SAR Submitted'},{id:'sarapp',label:'SAR Approve',stage:'SAR Approved'},{id:'pacsub',label:'PAC Submitted',stage:'PAC Submitted'},{id:'pacapp',label:'PAC Approved',stage:'PAC Approved'}]},
+    rows:[{id:'ti',label:'TI Completed',stage:'TI Completed'},{id:'comm',label:'Commissioned',stage:'Commissioned'},{id:'patsub',label:'PAT Submit',stage:'PRE PAT Submitted'},{id:'patapp',label:'PAT Approve',stage:'PAT Approved'},{id:'sarsub',label:'SAR Submit',stage:'SAR Submitted'},{id:'sarapp',label:'SAR Approve',stage:'SAR Approved'},{id:'pacsub',label:'PAC Submitted',stage:'PAC Submitted'},{id:'pacapp',label:'PAC Approved',stage:'PAC Approved'}]},
   ne25:{title:'NE25 MW Implementation Progress Report',src:'NE25 MW Implementation Update',
     note:'SAR scope = 2 × project scope.',
     rows:[{id:'inst',label:'Installation',stage:'Installation Completed'},{id:'tt',label:'Traffic Transfer',stage:'Traffic Transferred'},{id:'patsub',label:'PAT Submit',stage:'PAT Submitted'},{id:'patapp',label:'PAT Approve',stage:'PAT Approved'},{id:'sarsub',label:'SAR Submit',stage:'SAR Submitted'},{id:'sarapp',label:'SAR Approve',stage:'SAR Approved'}]}
@@ -502,7 +502,7 @@ function weekFromThursday(thu){const y=thu.getUTCFullYear();const d0=Math.round(
 function isoWeekOf(date){const t=new Date(Date.UTC(date.getFullYear(),date.getMonth(),date.getDate()));t.setUTCDate(t.getUTCDate()-((t.getUTCDay()+6)%7)+3);return weekFromThursday(t);}
 // Reporting month = month of the current ISO week's Thursday; its weeks = every ISO week whose Thursday falls in that month
 // (Nov 2026 → W45, W46, W47, W48)
-function Monthly Progress ReportsPeriod(){
+function nedPeriod(){
   const cur=isoWeekOf(new Date());
   const y=cur.thu.getUTCFullYear(),m=cur.thu.getUTCMonth();
   const weeks=[],t=new Date(Date.UTC(y,m,1));
@@ -516,14 +516,14 @@ function Monthly Progress ReportsPeriod(){
   return{year:y,month:m,weeks,curWeek:cur.week};
 }
 function fmtRange(a,b){const d=x=>String(x.getUTCDate()).padStart(2,'0'),mo=x=>MONTH_SHORT[x.getUTCMonth()];return a.getUTCMonth()===b.getUTCMonth()?`${d(a)} – ${d(b)} ${mo(b)}`:`${d(a)} ${mo(a)} – ${d(b)} ${mo(b)}`;}
-function swVal(key,wk,id,f){const v=data.stageWeekly?.[key]?.[wk]?.[id]?.[f];return(v===undefiMonthly Progress Reports||v===null||v==='')?null:(Number(v)||0);}
+function swVal(key,wk,id,f){const v=data.stageWeekly?.[key]?.[wk]?.[id]?.[f];return(v===undefined||v===null||v==='')?null:(Number(v)||0);}
 function swSum(key,weeks,id,f){return weeks.reduce((a,w)=>a+(swVal(key,w.key,id,f)||0),0);}
-function Monthly Progress ReportsNum(v){return v===null?'–':fmt(v);}
+function nedNum(v){return v===null?'–':fmt(v);}
 
-function renderMonthly Progress Reports(){
-  const host=document.getElementById('Monthly Progress Reports-reports');if(!host)return;
-  const p=Monthly Progress ReportsPeriod(),mon=MONTH_SHORT[p.month],monLong=MONTH_LONG[p.month];
-  const asof=document.getElementById('Monthly Progress Reports-asof');if(asof)asof.textContent=`Reporting month: ${monLong} ${p.year} · Current week: W${p.curWeek}`;
+function renderNed(){
+  const host=document.getElementById('ned-reports');if(!host)return;
+  const p=nedPeriod(),mon=MONTH_SHORT[p.month],monLong=MONTH_LONG[p.month];
+  const asof=document.getElementById('ned-asof');if(asof)asof.textContent=`Reporting month: ${monLong} ${p.year} · Current week: W${p.curWeek}`;
   host.innerHTML=Object.keys(Monthly Progress Reports_REPORTS).map(key=>{
     const rep=Monthly Progress Reports_REPORTS[key];
     const wkHead=p.weeks.map(w=>`<th colspan="2" class="${w.current?'cur':''}">${w.label}<small>${fmtRange(w.mon,w.sun)}${w.current?' · Ongoing':''}</small></th>`).join('');
@@ -531,19 +531,19 @@ function renderMonthly Progress Reports(){
     const rows=rep.rows.map(r=>{
       const st=(data[key].stages||[]).find(s=>s[0]===r.stage);
       const done=Number(st&&st[1])||0,scope=stageScope(key,r.stage),ach=pct(done,scope);
-      const cells=p.weeks.map(w=>['plan','actual'].map(f=>{const v=swVal(key,w.key,r.id,f);return `<td class="${v===null?'dash':''}${w.current?' cur':''}">${Monthly Progress ReportsNum(v)}</td>`}).join('')).join('');
+      const cells=p.weeks.map(w=>['plan','actual'].map(f=>{const v=swVal(key,w.key,r.id,f);return `<td class="${v===null?'dash':''}${w.current?' cur':''}">${nedNum(v)}</td>`}).join('')).join('');
       return `<tr><td class="task">${r.label}</td><td>${fmt(scope)}</td><td>${fmt(done)}</td><td class="mon">${fmt(swSum(key,p.weeks,r.id,'plan'))}</td><td class="mon">${fmt(swSum(key,p.weeks,r.id,'actual'))}</td>${cells}<td class="ach"><b>${percent(done,scope)}</b><div class="mini-bar"><span style="width:${Math.min(100,ach)}%;background:${ach>=100?'#299b42':'#0868d7'}"></span></div></td></tr>`;
     }).join('');
-    return `<article class="Monthly Progress Reports-card" data-Monthly Progress Reports="${key}"><div class="Monthly Progress Reports-head"><h3>${rep.title} – ${monLong} ${p.year}</h3><span>Source: ${rep.src}</span></div>
-      <div class="table-wrap"><table class="Monthly Progress Reports"><thead><tr><th rowspan="2" class="left">Task</th><th rowspan="2">Total Scope</th><th rowspan="2">Completed to Date</th><th rowspan="2" class="mon">${mon} Plan</th><th rowspan="2" class="mon">${mon} Actual</th>${wkHead}<th rowspan="2">Total Achievement %</th></tr><tr>${wkSub}</tr></thead><tbody>${rows}</tbody></table></div>
-      <div class="Monthly Progress Reports-foot">Total Scope and Completed to Date follow the site counts on the “${rep.src}” tab. ${mon} Plan / Actual are the totals of the weekly figures entered there. ${rep.note||''}</div></article>`;
+    return `<article class="ned-card" data-ned="${key}"><div class="ned-head"><h3>${rep.title} – ${monLong} ${p.year}</h3><span>Source: ${rep.src}</span></div>
+      <div class="table-wrap"><table class="ned"><thead><tr><th rowspan="2" class="left">Task</th><th rowspan="2">Total Scope</th><th rowspan="2">Completed to Date</th><th rowspan="2" class="mon">${mon} Plan</th><th rowspan="2" class="mon">${mon} Actual</th>${wkHead}<th rowspan="2">Total Achievement %</th></tr><tr>${wkSub}</tr></thead><tbody>${rows}</tbody></table></div>
+      <div class="ned-foot">Total Scope and Completed to Date follow the site counts on the “${rep.src}” tab. ${mon} Plan / Actual are the totals of the weekly figures entered there. ${rep.note||''}</div></article>`;
   }).join('');
 }
 
 // Weekly plan / actual entry per stage (lives on the first two tabs, feeds Monthly Progress Reports)
 function renderStageWeekly(key){
   const host=document.getElementById('weeklystage-'+key);if(!host)return;
-  const p=Monthly Progress ReportsPeriod(),rep=Monthly Progress Reports_REPORTS[key],dis=unlocked?'':'disabled';
+  const p=nedPeriod(),rep=Monthly Progress Reports_REPORTS[key],dis=unlocked?'':'disabled';
   const h1=p.weeks.map(w=>`<th colspan="2" class="${w.current?'cur':''}">${w.label}<small>${fmtRange(w.mon,w.sun)}${w.current?' · Ongoing':''}</small></th>`).join('');
   const h2=p.weeks.map(w=>`<th class="${w.current?'cur':''}">Plan</th><th class="${w.current?'cur':''}">Actual</th>`).join('');
   const rows=rep.rows.map(r=>{
@@ -551,11 +551,11 @@ function renderStageWeekly(key){
     return `<tr><td class="task">${r.label}</td>${cells}<td class="mon" data-sw-total="${key}|${r.id}|plan">${fmt(swSum(key,p.weeks,r.id,'plan'))}</td><td class="mon" data-sw-total="${key}|${r.id}|actual">${fmt(swSum(key,p.weeks,r.id,'actual'))}</td></tr>`;
   }).join('');
   host.innerHTML=`<div class="card sw-card" style="margin-top:14px"><div class="card-head"><h3>Weekly Plan &amp; Actual by Stage — ${MONTH_LONG[p.month]} ${p.year}</h3><span class="note">Feeds the Monthly Progress Reports tab automatically</span></div>
-    <div class="table-wrap"><table class="Monthly Progress Reports"><thead><tr><th rowspan="2" class="left">Task</th>${h1}<th colspan="2" class="mon">${MONTH_SHORT[p.month]} Total</th></tr><tr>${h2}<th class="mon">Plan</th><th class="mon">Actual</th></tr></thead><tbody>${rows}</tbody></table></div>
-    <div class="Monthly Progress Reports-foot">Plan is entered here. Actual is booked automatically into the current week whenever a site count above is changed; it can also be corrected here (e.g. after typing a first starting figure for a new stage such as SAR). Month totals are calculated.</div></div>`;
+    <div class="table-wrap"><table class="ned"><thead><tr><th rowspan="2" class="left">Task</th>${h1}<th colspan="2" class="mon">${MONTH_SHORT[p.month]} Total</th></tr><tr>${h2}<th class="mon">Plan</th><th class="mon">Actual</th></tr></thead><tbody>${rows}</tbody></table></div>
+    <div class="ned-foot">Plan is entered here. Actual is booked automatically into the current week whenever a site count above is changed; it can also be corrected here (e.g. after typing a first starting figure for a new stage such as SAR). Month totals are calculated.</div></div>`;
 }
 // A change to a stage count on the first two tabs is booked as actual completions in the CURRENT week
-function Monthly Progress ReportsAutoActual(key,stageName,delta){
+function nedAutoActual(key,stageName,delta){
   if(!delta)return;
   const row=Monthly Progress Reports_REPORTS[key].rows.find(r=>r.stage===stageName);if(!row)return;
   const c=isoWeekOf(new Date()),wk=`${c.year}-W${String(c.week).padStart(2,'0')}`;
@@ -564,12 +564,12 @@ function Monthly Progress ReportsAutoActual(key,stageName,delta){
   sw[key][wk][row.id].actual=Math.max(0,(Number(sw[key][wk][row.id].actual)||0)+delta);
 }
 // This month's plan / actual for NE25 MW (Installation) — drives the tracker on the NE25 MW tab
-function ne25MonthTotals(){const p=Monthly Progress ReportsPeriod();return{plan:swSum('ne25',p.weeks,'inst','plan'),actual:swSum('ne25',p.weeks,'inst','actual')};}
+function ne25MonthTotals(){const p=nedPeriod();return{plan:swSum('ne25',p.weeks,'inst','plan'),actual:swSum('ne25',p.weeks,'inst','actual')};}
 // First-time fill of the November 2026 weekly plans / actuals from the Book1 report sheet (only when nothing is stored yet)
-function seedMonthly Progress ReportsFromBook(p){
+function seedNedFromBook(p){
   p.migration=p.migration&&typeof p.migration==='object'?p.migration:{};
-  if(p.migration.Monthly Progress ReportsSeeded)return p;
-  p.migration.Monthly Progress ReportsSeeded=true;
+  if(p.migration.nedSeeded)return p;
+  p.migration.nedSeeded=true;
   const empty=k=>!p.stageWeekly[k]||!Object.keys(p.stageWeekly[k]).length;
   if(!(empty('expansion')&&empty('ne25')))return p;
   const W=['2026-W45','2026-W46','2026-W47','2026-W48'];
@@ -584,13 +584,13 @@ function seedMonthly Progress ReportsFromBook(p){
   }
   return p;
 }
-function updateSwTotals(key){const p=Monthly Progress ReportsPeriod();document.querySelectorAll(`[data-sw-total^="${key}|"]`).forEach(el=>{const[k,id,f]=el.dataset.swTotal.split('|');el.textContent=fmt(swSum(k,p.weeks,id,f));});}
+function updateSwTotals(key){const p=nedPeriod();document.querySelectorAll(`[data-sw-total^="${key}|"]`).forEach(el=>{const[k,id,f]=el.dataset.swTotal.split('|');el.textContent=fmt(swSum(k,p.weeks,id,f));});}
 
 function renderAll(){
   STREAMS.forEach(renderDashboard);
   renderNe25Monthly();
   STREAMS.forEach(renderStageWeekly);
-  renderMonthly Progress Reports();
+  renderNed();
   renderWeekly();
   document.getElementById('statusdot').classList.toggle('open',unlocked);
   document.getElementById('locktext').textContent=unlocked?'Editing unlocked':'Editing locked';
@@ -631,7 +631,7 @@ document.addEventListener('input',e=>{
 document.addEventListener('change',e=>{
   const t=e.target;
   // view-only filters → allowed while locked
-  if(t.dataset.weekFilter!==undefiMonthly Progress Reports){
+  if(t.dataset.weekFilter!==undefined){
     _weekFilter[t.dataset.weekFilter]=t.value;
     renderWeekly();
     return;
@@ -644,8 +644,8 @@ document.addEventListener('change',e=>{
   if(!unlocked)return;
   if(t.dataset.total){
     const key=t.dataset.total;data[key].total=Math.max(0,Number(t.value)||0);data[key].stages[0][1]=data[key].total;renderDashboard(key);
-  } else if(t.dataset.stageKey!==undefiMonthly Progress Reports){
-    const key=t.dataset.stageKey,i=Number(t.dataset.stageIndex);{const nv=Math.max(0,Number(t.value)||0),old=Number(data[key].stages[i][1])||0;data[key].stages[i][1]=nv;Monthly Progress ReportsAutoActual(key,data[key].stages[i][0],nv-old);renderDashboard(key);renderStageWeekly(key);renderNe25Monthly();}
+  } else if(t.dataset.stageKey!==undefined){
+    const key=t.dataset.stageKey,i=Number(t.dataset.stageIndex);{const nv=Math.max(0,Number(t.value)||0),old=Number(data[key].stages[i][1])||0;data[key].stages[i][1]=nv;nedAutoActual(key,data[key].stages[i][0],nv-old);renderDashboard(key);renderStageWeekly(key);renderNe25Monthly();}
   } else if(t.dataset.plan){
     const i=Number(t.dataset.i),field=t.dataset.plan,key=t.dataset.stream;
     if((field==='subcon'||field==='team')&&t.tagName==='SELECT'){
@@ -655,14 +655,14 @@ document.addEventListener('change',e=>{
     }
     if(field==='status'){applyStatusColor(t);}
     renderWeekly();
-  } else if(t.dataset.sw!==undefiMonthly Progress Reports){
+  } else if(t.dataset.sw!==undefined){
     const[k,wk,id,f]=t.dataset.sw.split('|');
     if(!data.stageWeekly)data.stageWeekly={expansion:{},ne25:{}};
     const sw=data.stageWeekly;sw[k]=sw[k]||{};sw[k][wk]=sw[k][wk]||{};sw[k][wk][id]=sw[k][wk][id]||{};
     if(t.value==='')delete sw[k][wk][id][f];else sw[k][wk][id][f]=Math.max(0,Number(t.value)||0);
-    updateSwTotals(k);renderMonthly Progress Reports();renderNe25Monthly();
+    updateSwTotals(k);renderNed();renderNe25Monthly();
   } else if(t.dataset.ne25monthly){
-    if(!data.ne25monthly)data.ne25monthly={planMonthly Progress Reports:0,actual:0};
+    if(!data.ne25monthly)data.ne25monthly={planned:0,actual:0};
     data.ne25monthly[t.dataset.ne25monthly]=Math.max(0,Number(t.value)||0);
     renderNe25Monthly();
   }
@@ -689,7 +689,7 @@ document.addEventListener('click',e=>{
   // close dropdown if clicking outside
   if(!t.closest('.siteid-wrap'))closeAllDropdowns();
   // remove row — archive to history first
-  if(t.dataset.remove!==undefiMonthly Progress Reports&&unlocked){
+  if(t.dataset.remove!==undefined&&unlocked){
     const [key,index]=t.dataset.remove.split(':');
     const removed=data.weekly[key].splice(Number(index),1)[0];
     if(removed){
@@ -705,7 +705,7 @@ document.addEventListener('click',e=>{
     const key=t.dataset.addPlan;
     const live=data.weekly[key]||[];
     const weekLabel=live.length>0?live[live.length-1].week:currentWeekLabel();
-    const newRow={week:weekLabel,date:'',siteId:'',activity:'',status:'PlanMonthly Progress Reports',progress:0,remarks:''};
+    const newRow={week:weekLabel,date:'',siteId:'',activity:'',status:'Planned',progress:0,remarks:''};
     if(key==='expansion'){newRow.subcon='';newRow.team='';}
     data.weekly[key].push(newRow);
     renderWeekly();
@@ -759,8 +759,8 @@ function downloadWeeklyCsv(key){
   allRows.sort((a,b)=>(a.week||'').localeCompare(b.week||''));
   const isExp=key==='expansion';
   const headers=isExp
-    ?['Week / Plan','Plan Date','Site ID','PlanMonthly Progress Reports Activity','Actual Status','Subcon','Team','Progress %','Remarks / Next Action']
-    :['Week / Plan','Plan Date','Site ID','PlanMonthly Progress Reports Activity','Actual Status','Progress %','Remarks / Next Action'];
+    ?['Week / Plan','Plan Date','Site ID','Planned Activity','Actual Status','Subcon','Team','Progress %','Remarks / Next Action']
+    :['Week / Plan','Plan Date','Site ID','Planned Activity','Actual Status','Progress %','Remarks / Next Action'];
   const rows=allRows.map(r=>isExp
     ?[r.week,r.date,r.siteId,r.activity,r.status,r.subcon||'',r.team||'',r.progress,r.remarks]
     :[r.week,r.date,r.siteId,r.activity,r.status,r.progress,r.remarks]);
@@ -770,8 +770,8 @@ function downloadWeeklyCsv(key){
 function downloadBlob(blob,name){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();URL.revokeObjectURL(url);}
 
 // Re-render when the week / month rolls over while the page stays open
-let _Monthly Progress ReportsSig=(()=>{const p=Monthly Progress ReportsPeriod();return p.year+'-'+p.month+'-'+p.curWeek})();
-setInterval(()=>{const p=Monthly Progress ReportsPeriod(),sig=p.year+'-'+p.month+'-'+p.curWeek;if(sig!==_Monthly Progress ReportsSig){_Monthly Progress ReportsSig=sig;renderAll();}},300000);
+let _nedSig=(()=>{const p=nedPeriod();return p.year+'-'+p.month+'-'+p.curWeek})();
+setInterval(()=>{const p=nedPeriod(),sig=p.year+'-'+p.month+'-'+p.curWeek;if(sig!==_nedSig){_nedSig=sig;renderAll();}},300000);
 
 renderAll();
 </script>
