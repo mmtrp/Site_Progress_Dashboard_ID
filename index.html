@@ -769,7 +769,7 @@ function downloadWeeklyCsv(key){
 }
 function downloadBlob(blob,name){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();URL.revokeObjectURL(url);}
 
-// Re-render when the week / month rolls over while the page stays open
+// Re-render when the week / month rolls over while the page stays open.
 let _nedSig=(()=>{const p=nedPeriod();return p.year+'-'+p.month+'-'+p.curWeek})();
 setInterval(()=>{const p=nedPeriod(),sig=p.year+'-'+p.month+'-'+p.curWeek;if(sig!==_nedSig){_nedSig=sig;renderAll();}},300000);
 
