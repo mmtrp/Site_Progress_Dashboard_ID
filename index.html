@@ -158,9 +158,9 @@ select.se-sel.se-App{background:#d4edda;color:#1a6b30;border-color:#7fcf97}
 <section class="panel" id="panel-weekly"><div class="section-title"><div><h2>Weekly Plan & Actuals</h2><p>Separate weekly execution trackers for each workstream.</p></div></div><div class="locked-banner" id="weeklyLockBanner">Editing is locked. You can still filter and view rows using the week filter and the column filters. Select <b>Unlock Editing</b> and enter the dashboard password to add or update weekly plans.</div>
 <div id="weekly-workstreams" class="weekly-workstreams"></div></section>
 <section class="panel" id="panel-ned"><div class="section-title"><div><h2>Monthly Progress Reports</h2><p>Monthly summary of the Expansion + New sites + L850 and NE25 MW tabs · updates automatically when those tabs are updated.</p></div><span class="note" id="ned-asof"></span></div><div id="ned-reports"></div></section>
-<section class="panel" id="panel-se"><div class="section-title"><div><h2>ZTE Site Engineer Performance</h2><p>Commissioned · PAT Submitted · PAT Approved status per site, with completion rate and remaining sites for each ZTE Site Engineer · updates automatically when a site status is changed.</p></div><span class="note" id="se-asof"></span></div>
+<section class="panel" id="panel-se"><div class="section-title"><div><h2>ZTE Site Engineer Performance</h2><p>Commissioned · PAT Submitted · PAT Approved status per site, with completion rate and remaining sites for each ZTE Site Engineer</p></div><span class="note" id="se-asof"></span></div>
 <div class="se-banner" id="seBanner"></div>
-<div class="se-flow"><span class="chip c0"><i></i>Pending</span><span class="arr">›</span><span class="chip c1"><i></i>Commissioned</span><span class="arr">›</span><span class="chip c2"><i></i>PAT Submitted</span><span class="arr">›</span><span class="chip c3"><i></i>PAT Approved</span><span class="hint">Stage counts are cumulative — a site at PAT Approved is also counted as Commissioned and PAT Submitted.</span></div>
+<div class="se-flow"><span class="chip c0"><i></i>Pending</span><span class="arr">›</span><span class="chip c1"><i></i>Commissioned</span><span class="arr">›</span><span class="chip c2"><i></i>PAT Submitted</span><span class="arr">›</span><span class="chip c3"><i></i>PAT Approved</span><span class="hint"></span></div>
 <div class="metrics m6" id="se-metrics"></div>
 <div class="se-cards" id="se-cards"></div>
 <div class="grid2 se-grid2"><article class="card"><div class="card-head"><h3>Engineer Performance Comparison</h3><span class="note">Completion rate = PAT Approved ÷ assigned sites</span></div><div class="table-wrap"><table><thead><tr><th>ZTE SE</th><th class="num">Assigned</th><th class="num">Commissioned</th><th class="num">PAT Submitted</th><th class="num">PAT Approved</th><th class="num">Remaining</th><th>Completion Rate</th></tr></thead><tbody id="se-compare"></tbody></table></div></article>
@@ -968,7 +968,7 @@ function renderSE(){
   bn.classList.toggle('open',unlocked);
   bn.innerHTML=unlocked
     ?'<b>Editing unlocked.</b> Choose <b>Pending / Commissioned / PAT Submitted / PAT Approved</b> for each site — engineer progress updates instantly. Press <b>Save Changes</b> (top bar) to store it in the shared database.'
-    :'Status selection is locked. Select <b>Unlock Editing</b> and enter the dashboard password to change a site status. Filters and all summaries stay available.';
+    :'Status selection is locked. Select <b>Unlock Editing</b> and enter the dashboard password to change a site status.';
   renderSESummary();seSyncFilters();renderSETable();
 }
 
