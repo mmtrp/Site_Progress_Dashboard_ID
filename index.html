@@ -177,7 +177,7 @@ table.ned tr.tm-total td{background:#eaf0fa;font-weight:800;border-top:2px solid
 <main class="wrap">
 <div class="toolbar"><div class="tabs"><button class="tab active" data-tab="expansion">Expansion + New sites + L850 Progress</button><button class="tab" data-tab="ne25">NE25 MW Implementation</button><button class="tab" data-tab="weekly">Weekly Plan & Actuals</button><button class="tab" data-tab="ned">Monthly Progress Reports</button><button class="tab" data-tab="team">Weekly Team Deployment</button><button class="tab" data-tab="se">ZTE Site Engineer Performance</button></div><span class="lockstate"><i class="statusdot" id="statusdot"></i><span id="locktext">Editing locked</span></span><button class="btn primary" id="unlockBtn">🔒 Unlock Editing</button><button class="btn" id="saveBtn" disabled>Save Changes</button><button class="btn" id="exportBtn">Export Data</button><button class="btn" id="printBtn">Print</button></div>
 <section class="panel active" id="panel-expansion">
-<div class="section-title"><div><h2>Expansion + New sites + L850 Progress</h2><p>Combined overview of expansion, new and L850 sites · Percentages and summary tables update automatically from site counts.</p></div><span class="note">Reporting dashboard · editable after password verification</span></div>
+<div class="section-title"><div><h2>Expansion + New sites + L850 Progress</h2><p>Combined overview of expansion, new and L850 sites · Percentages and summary tables update automatically from site counts.</p></div><span class="note">Reporting dashboard · Editable after password verification</span></div>
 <div class="metrics m6" id="metrics-expansion"></div><div class="grid2"><article class="card"><div class="card-head"><h3>Expansion + New sites + L850 Status Summary</h3><span class="note">Live calculation</span></div><div class="table-wrap"><table><thead><tr><th>Stage</th><th class="num">Site Count</th><th class="num">% of Total Sites</th></tr></thead><tbody id="summary-expansion"></tbody></table></div></article><article class="card"><div class="card-head"><h3>Overall Progress</h3><span class="note">PAT approved vs total scope</span></div><div class="card-body"><div class="progress-layout" id="progress-expansion"></div></div></article></div><article class="card"><div class="card-head"><h3>Key Highlights</h3></div><div class="card-body"><div class="highlights" id="highlights-expansion"></div></div></article>
 <div class="card" style="margin-top:14px"><div class="card-head"><h3>Edit Expansion + New sites + L850 Site Counts</h3><span class="note">Counts are entered manually; all percentages and visuals recalculate.</span></div><div class="editable-grid" id="fields-expansion"></div></div><div id="weeklystage-expansion"></div>
 </section>
@@ -185,7 +185,7 @@ table.ned tr.tm-total td{background:#eaf0fa;font-weight:800;border-top:2px solid
 <section class="panel" id="panel-weekly"><div class="section-title"><div><h2>Weekly Plan & Actuals</h2><p>Separate weekly execution trackers for each workstream.</p></div></div><div class="locked-banner" id="weeklyLockBanner">Editing is locked. You can still filter and view rows using the week filter and the column filters. Select <b>Unlock Editing</b> and enter the dashboard password to add or update weekly plans.</div>
 <div id="weekly-workstreams" class="weekly-workstreams"></div></section>
 <section class="panel" id="panel-ned"><div class="section-title"><div><h2>Monthly Progress Reports</h2><p>Monthly summary of the Expansion + New sites + L850 and NE25 MW tabs · updates automatically when those tabs are updated.</p></div><span class="note" id="ned-asof"></span></div><div id="ned-reports"></div></section>
-<section class="panel" id="panel-team"><div class="section-title"><div><h2>Weekly Team Deployment</h2><p>Number of subcontractor teams working each day of the week · the week number and dates update automatically.</p></div><span class="note">Editable after password verification</span></div>
+<section class="panel" id="panel-team"><div class="section-title"><div><h2>Weekly Team Deployment</h2><p></p></div><span class="note"></span></div>
 <div id="team-status"></div></section>
 <section class="panel" id="panel-se"><div class="section-title"><div><h2>ZTE Site Engineer Performance</h2><p>Commissioned · PAT Submitted · PAT Approved status per site, with completion rate and remaining sites for each ZTE Site Engineer</p></div><span class="note" id="se-asof"></span></div>
 <div class="se-banner" id="seBanner"></div>
@@ -997,8 +997,8 @@ function renderSE(){
   const bn=document.getElementById('seBanner');
   bn.classList.toggle('open',unlocked);
   bn.innerHTML=unlocked
-    ?'<b>Editing unlocked.</b> Choose <b>Pending / Commissioned / PAT Submitted / PAT Approved</b> for each site. Press <b>Save Changes</b> to store it in the database.'
-    :'Status selection is locked. Select <b>Unlock Editing</b> and enter the dashboard password to change a site status.';
+    ?'<b>Editing unlocked.'
+    :'Status selection is locked. Select <b>Unlock Editing</b>';
   renderSESummary();seSyncFilters();renderSETable();
 }
 
