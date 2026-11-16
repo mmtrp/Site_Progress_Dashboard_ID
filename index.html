@@ -967,7 +967,7 @@ function renderSE(){
   const bn=document.getElementById('seBanner');
   bn.classList.toggle('open',unlocked);
   bn.innerHTML=unlocked
-    ?'<b>Editing unlocked.</b> Choose <b>Pending / Commissioned / PAT Submitted / PAT Approved</b> for each site — engineer progress updates instantly. Press <b>Save Changes</b> (top bar) to store it in the shared database.'
+    ?'<b>Editing unlocked.</b> Choose <b>Pending / Commissioned / PAT Submitted / PAT Approved</b> for each site. Press <b>Save Changes</b> to store it in the database.'
     :'Status selection is locked. Select <b>Unlock Editing</b> and enter the dashboard password to change a site status.';
   renderSESummary();seSyncFilters();renderSETable();
 }
