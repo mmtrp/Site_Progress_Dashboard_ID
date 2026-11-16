@@ -143,6 +143,33 @@ select.se-sel.se-App{background:#d4edda;color:#1a6b30;border-color:#7fcf97}
 .se-table td{padding:9px 10px}
 .se-table th,.se-card-main{letter-spacing:.2px}
 @media(max-width:600px){.se-flow .hint{margin-left:0;width:100%}}
+/* ── Weekly Team Deployment (Monthly Progress Reports tab, prefix .tm-) ── */
+.tm-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 12px}
+.tm-bar h3{margin:0;font-size:15px;color:var(--navy);text-transform:uppercase;letter-spacing:.4px}
+.tm-bar .tm-tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11px;color:var(--muted);font-weight:700}
+.tm-bar select{font-size:12px;padding:6px 9px;border:1px solid #cfd9e7;border-radius:7px;background:#fff;color:var(--ink);font-weight:700}
+.tm-pill{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:800;background:#d4edda;color:#1a6b30;border:1px solid #7fcf97}
+.tm-pill.past{background:#f1f5f9;color:#475569;border-color:#cbd5e1}
+.tm-today{font-size:11px;color:#dceaff;font-weight:700}
+.tm-today b{color:#fff;font-size:13px}
+table.ned td.tm-c{min-width:62px;font-weight:700}
+table.ned td.tm-c.ok{background:#e3f4e8;color:#1a6b30}
+table.ned td.tm-c.warn{background:#fff3d6;color:#8a5a00}
+table.ned td.tm-c.bad{background:#fde8ea;color:#b4182a}
+table.ned td.tm-c.empty{background:#fafbfd;color:#9aa8bb;font-weight:500}
+table.ned td.tm-c.today,table.ned th.today{box-shadow:inset 2px 0 0 #0868d7,inset -2px 0 0 #0868d7}
+table.ned td.tm-sub{text-align:left;font-weight:800;color:var(--navy)}
+table.ned td.tm-sub .tm-del{border:0;background:#fff0f0;color:var(--red);border-radius:5px;margin-left:8px;padding:1px 6px;font-size:11px;cursor:pointer}
+.tm-in{width:54px;padding:5px 4px;border:1px solid #cfd9e7;border-radius:6px;text-align:center;font-size:12px;font-weight:700;background:#fff;color:var(--ink)}
+table.ned tr.tm-total td{background:#eaf0fa;font-weight:800;border-top:2px solid #b6c8e0;color:var(--navy)}
+.tm-ach{display:flex;align-items:center;gap:7px;justify-content:center;min-width:110px}
+.tm-ach .mini-bar{flex:1;margin:0;min-width:46px}
+.tm-legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.tm-legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px;border:1px solid}
+.tm-legend .l-ok{background:#e3f4e8;border-color:#7fcf97}.tm-legend .l-warn{background:#fff3d6;border-color:#f2c869}.tm-legend .l-bad{background:#fde8ea;border-color:#f3a6af}.tm-legend .l-empty{background:#fafbfd;border-color:#cfd9e7}
+.tm-add{display:flex;gap:8px;align-items:center;margin-top:8px}
+.tm-add input{padding:5px 8px;border:1px solid #cfd9e7;border-radius:6px;font-size:12px;width:170px}
+.tm-add button{padding:5px 11px;font-size:12px}
 </style>
 </head>
 <body>
@@ -157,7 +184,7 @@ select.se-sel.se-App{background:#d4edda;color:#1a6b30;border-color:#7fcf97}
 <section class="panel" id="panel-ne25"><div class="section-title"><div><h2>NE25 MW Implementation Update</h2><p>Overview of project progress · site counts, percentages and implementation pipeline.</p></div></div><div id="ne25-monthly-block"></div><div class="metrics m6" id="metrics-ne25"></div><div class="grid2"><article class="card"><div class="card-head"><h3>Implementation Pipeline Funnel</h3></div><div class="table-wrap"><table><thead><tr><th>Stage</th><th class="num">Site Count</th><th class="num">% of Total Scope</th></tr></thead><tbody id="summary-ne25"></tbody></table></div></article><article class="card"><div class="card-head"><h3>Progress at a Glance</h3></div><div class="card-body"><div class="progress-layout" id="progress-ne25"></div></div></article></div><article class="card"><div class="card-head"><h3>Key Highlights</h3></div><div class="card-body"><div class="highlights" id="highlights-ne25"></div></div></article><div class="card" style="margin-top:14px"><div class="card-head"><h3>Edit NE25 MW Project Counts</h3><span class="note">Update counts to refresh the dashboard.</span></div><div class="editable-grid" id="fields-ne25"></div></div><div id="weeklystage-ne25"></div></section>
 <section class="panel" id="panel-weekly"><div class="section-title"><div><h2>Weekly Plan & Actuals</h2><p>Separate weekly execution trackers for each workstream.</p></div></div><div class="locked-banner" id="weeklyLockBanner">Editing is locked. You can still filter and view rows using the week filter and the column filters. Select <b>Unlock Editing</b> and enter the dashboard password to add or update weekly plans.</div>
 <div id="weekly-workstreams" class="weekly-workstreams"></div></section>
-<section class="panel" id="panel-ned"><div class="section-title"><div><h2>Monthly Progress Reports</h2><p>Monthly summary of the Expansion + New sites + L850 and NE25 MW tabs · updates automatically when those tabs are updated.</p></div><span class="note" id="ned-asof"></span></div><div id="ned-reports"></div></section>
+<section class="panel" id="panel-ned"><div class="section-title"><div><h2>Monthly Progress Reports</h2><p>Monthly summary of the Expansion + New sites + L850 and NE25 MW tabs · updates automatically when those tabs are updated.</p></div><span class="note" id="ned-asof"></span></div><div id="team-status"></div><div id="ned-reports"></div></section>
 <section class="panel" id="panel-se"><div class="section-title"><div><h2>ZTE Site Engineer Performance</h2><p>Commissioned · PAT Submitted · PAT Approved status per site, with completion rate and remaining sites for each ZTE Site Engineer</p></div><span class="note" id="se-asof"></span></div>
 <div class="se-banner" id="seBanner"></div>
 <div class="se-flow"><span class="chip c0"><i></i>Pending</span><span class="arr">›</span><span class="chip c1"><i></i>Commissioned</span><span class="arr">›</span><span class="chip c2"><i></i>PAT Submitted</span><span class="arr">›</span><span class="chip c3"><i></i>PAT Approved</span><span class="hint"></span></div>
@@ -674,6 +701,7 @@ function renderAll(){
   renderNed();
   renderWeekly();
   try{renderSE();}catch(err){console.error('SE tab',err);}
+  try{renderTeams();}catch(err){console.error('Team status',err);}
   document.getElementById('statusdot').classList.toggle('open',unlocked);
   document.getElementById('locktext').textContent=unlocked?'Editing unlocked':'Editing locked';
   document.getElementById('unlockBtn').textContent=unlocked?'🔓 Lock Editing':'🔒 Unlock Editing';
@@ -1004,6 +1032,129 @@ document.addEventListener('click',e=>{
   }
 });
 // ═══ end ZTE Site Engineer Performance tab ═══
+
+// ═══════════════════════════════════════════════════════════════════════
+// Weekly Team Deployment tables (Monthly Progress Reports tab) — own state key: data.teamStatus
+// ═══════════════════════════════════════════════════════════════════════
+const TM_STREAMS=[
+  {key:'ne25',title:'MW Team Status Update',src:'NE25 MW Implementation Update',subs:['MASS','FAME'],req:{MASS:2,FAME:4}},
+  {key:'expansion',title:'Expansion + New sites + L850 Team Status Update',src:'Expansion + New sites + L850 Progress',subs:['Asian','MASS','Lakyota'],req:{}}
+];
+const TM_DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+let tmSel=''; // '' = always follow the current ISO week
+function tmData(){
+  if(!data.teamStatus||typeof data.teamStatus!=='object')data.teamStatus={};
+  const t=data.teamStatus;
+  for(const k of ['required','extra','weeks'])if(!t[k]||typeof t[k]!=='object')t[k]={};
+  return t;
+}
+function tmCurKey(){const c=isoWeekOf(new Date());return `${c.year}-W${String(c.week).padStart(2,'0')}`;}
+function tmMonday(wk){const[y,w]=wk.split('-W').map(Number);const j4=Date.UTC(y,0,4),dow=(new Date(j4).getUTCDay()+6)%7;return new Date(j4-dow*864e5+(w-1)*7*864e5);}
+function tmSubs(s){return [...s.subs,...toArr(tmData().extra[s.key]).filter(x=>x&&!s.subs.includes(x))];}
+function tmReq(s,sub){const v=tmData().required[s.key]?.[sub];return v==null||v===''?(s.req[sub]||0):(Number(v)||0);}
+function tmVal(s,wk,sub,d){const v=tmData().weeks[wk]?.[s.key]?.[sub]?.['d'+d];return v==null||v===''?null:(Number(v)||0);}
+function tmWeekList(){
+  const set=new Set([tmCurKey(),...Object.keys(tmData().weeks)]);
+  return [...set].sort().reverse();
+}
+function tmDayIso(mon,i){const d=new Date(mon);d.setUTCDate(d.getUTCDate()+i);return d;}
+
+function renderTeams(){
+  const host=document.getElementById('team-status');if(!host)return;
+  const cur=tmCurKey();if(tmSel===cur)tmSel='';
+  const wk=tmSel||cur,wn=Number(wk.split('-W')[1]),mon=tmMonday(wk),sun=tmDayIso(mon,6),isCur=wk===cur;
+  const dis=unlocked?'':'disabled';
+  const now=new Date(),todayUtc=Date.UTC(now.getFullYear(),now.getMonth(),now.getDate());
+  const todayIdx=isCur?[0,1,2,3,4,5,6].find(i=>tmDayIso(mon,i).getTime()===todayUtc):undefined;
+  const weekOpts=tmWeekList().map(w=>`<option value="${w}" ${w===wk?'selected':''}>Week ${Number(w.split('-W')[1])} · ${w.slice(0,4)}${w===cur?' (current)':''}</option>`).join('');
+  const head=`<div class="tm-bar"><h3>Weekly Team Deployment</h3><div class="tm-tools"><span class="tm-pill${isCur?'':' past'}">${isCur?'Current week · auto-updated':'Viewing a past week'}</span>Week: <select data-tm-week="1">${weekOpts}</select></div></div>`;
+  const cards=TM_STREAMS.map(s=>{
+    const subs=tmSubs(s);
+    const dayH1=TM_DAYS.map((d,i)=>{const dt=tmDayIso(mon,i);return `<th class="${i===todayIdx?'cur today':''}">${String(dt.getUTCDate()).padStart(2,'0')} ${MONTH_SHORT[dt.getUTCMonth()]}<small>(${d})</small></th>`;}).join('');
+    const rows=subs.map(sub=>{
+      const extra=!s.subs.includes(sub);
+      const reqCell=unlocked?`<input class="tm-in" type="number" min="0" step="1" data-tm-req="${s.key}|${esc(sub)}" value="${tmReq(s,sub)}">`:`<b>${tmReq(s,sub)}</b>`;
+      const cells=TM_DAYS.map((d,i)=>{const v=tmVal(s,wk,sub,i);
+        return `<td class="tm-c${i===todayIdx?' today':''}" data-tmc="${s.key}|${esc(sub)}|${i}">${unlocked?`<input class="tm-in" type="number" min="0" step="1" data-tm-in="${s.key}|${esc(sub)}|${i}" value="${v===null?'':v}">`:(v===null?'–':v)}</td>`;}).join('');
+      return `<tr><td class="tm-sub">${esc(sub)}${extra&&unlocked?`<button class="tm-del" data-tm-del="${s.key}|${esc(sub)}" title="Remove subcontractor">✕</button>`:''}</td><td data-tmreq="${s.key}|${esc(sub)}">${reqCell}</td>${cells}<td data-tmavg="${s.key}|${esc(sub)}">–</td><td data-tmach="${s.key}|${esc(sub)}">–</td></tr>`;
+    }).join('');
+    const totCells=TM_DAYS.map((d,i)=>`<td class="${i===todayIdx?'today':''}" data-tmtot="${s.key}|${i}">–</td>`).join('');
+    return `<article class="ned-card" data-tm="${s.key}"><div class="ned-head"><h3>${s.title} – Week ${wn}</h3><span>${fmtRange(mon,sun)} ${sun.getUTCFullYear()} · <span class="tm-today" id="tm-today-${s.key}"></span></span></div>
+      <div class="table-wrap"><table class="ned"><thead><tr><th rowspan="2" class="left">Subcontractor Name</th><th rowspan="2">Required Team Count</th><th colspan="7">Actual working team count</th><th rowspan="2">Avg / Day</th><th rowspan="2">Avg vs Required</th></tr><tr>${dayH1}</tr></thead>
+      <tbody>${rows}<tr class="tm-total"><td class="tm-sub" style="text-align:left">Total</td><td data-tmtotreq="${s.key}">–</td>${totCells}<td data-tmtotavg="${s.key}">–</td><td data-tmtotach="${s.key}">–</td></tr></tbody></table></div>
+      <div class="ned-foot"><div class="tm-legend"><span><i class="l-ok"></i>Required team count met</span><span><i class="l-warn"></i>Below required</span><span><i class="l-bad"></i>No team working</span><span><i class="l-empty"></i>Not yet reported</span><span style="margin-left:auto">Source: ${s.src}</span></div>
+      ${unlocked?`<div class="tm-add"><input type="text" maxlength="30" id="tm-new-${s.key}" placeholder="Add subcontractor name"><button class="btn primary" data-tm-add="${s.key}">＋ Add</button><span class="note">Enter the required and daily working team counts directly in the table, then press Save Changes.</span></div>`:''}</div></article>`;
+  }).join('');
+  host.innerHTML=`<div style="margin-bottom:6px">${head}${cards}</div>`;
+  TM_STREAMS.forEach(tmRecalc);
+}
+
+// Recalculates every derived cell (colours, averages, totals) in place so typing/tabbing never loses focus
+function tmRecalc(s){
+  const wk=document.querySelector('#team-status select[data-tm-week]')?.value||tmSel||tmCurKey();
+  const root=document.querySelector(`#team-status [data-tm="${s.key}"]`);if(!root)return;
+  const subs=tmSubs(s),dayTot=Array(7).fill(null);
+  let sumReq=0,sumAvg=0,anyAvg=false;
+  const ach=(avg,req)=>req>0?`<div class="tm-ach"><div class="mini-bar"><span style="width:${Math.min(100,avg/req*100)}%;background:${avg>=req?'#299b42':'#f59e0b'}"></span></div><b>${Math.round(avg/req*100)}%</b></div>`:'–';
+  const byAttr=(attr,id)=>[...root.querySelectorAll(`[${attr}]`)].find(el=>el.getAttribute(attr)===id);
+  subs.forEach(sub=>{
+    const req=tmReq(s,sub);let n=0,sum=0;sumReq+=req;
+    for(let i=0;i<7;i++){
+      const v=tmVal(s,wk,sub,i),td=byAttr('data-tmc',`${s.key}|${sub}|${i}`);
+      if(v!==null){n++;sum+=v;dayTot[i]=(dayTot[i]||0)+v;}
+      if(td){const today=td.classList.contains('today');
+        td.className='tm-c '+(v===null?'empty':(v===0&&req>0?'bad':(v>=req?'ok':'warn')))+(today?' today':'');}
+    }
+    const avg=n?sum/n:null;
+    const a=byAttr('data-tmavg',`${s.key}|${sub}`),c=byAttr('data-tmach',`${s.key}|${sub}`);
+    if(a)a.innerHTML=avg===null?'–':`<b>${fmt(Math.round(avg*10)/10)}</b>`;
+    if(c)c.innerHTML=avg===null?'–':ach(avg,req);
+    if(avg!==null){sumAvg+=avg;anyAvg=true;}
+  });
+  const d=byAttr('data-tmtotreq',s.key);if(d)d.innerHTML=fmt(sumReq);
+  for(let i=0;i<7;i++){const el=byAttr('data-tmtot',`${s.key}|${i}`);if(el)el.textContent=dayTot[i]===null?'–':fmt(dayTot[i]);}
+  const ta=byAttr('data-tmtotavg',s.key),tc=byAttr('data-tmtotach',s.key);
+  if(ta)ta.textContent=anyAvg?fmt(Math.round(sumAvg*10)/10):'–';
+  if(tc)tc.innerHTML=anyAvg?ach(sumAvg,sumReq):'–';
+  // today's headline in the card header (current week only)
+  const el=document.getElementById('tm-today-'+s.key);
+  if(el){
+    const mon=tmMonday(wk),now=new Date(),tu=Date.UTC(now.getFullYear(),now.getMonth(),now.getDate());
+    const ti=wk===tmCurKey()?[0,1,2,3,4,5,6].find(i=>tmDayIso(mon,i).getTime()===tu):undefined;
+    el.innerHTML=ti!==undefined&&dayTot[ti]!==null?`Today: <b>${fmt(dayTot[ti])}</b> of ${fmt(sumReq)} teams`:`Required: <b>${fmt(sumReq)}</b> teams`;
+  }
+}
+
+document.addEventListener('change',e=>{
+  const t=e.target;
+  if(t.dataset.tmWeek!==undefined){tmSel=t.value===tmCurKey()?'':t.value;renderTeams();return;}
+  if(!unlocked)return;
+  if(t.dataset.tmIn!==undefined){
+    const[k,sub,d]=t.dataset.tmIn.split('|'),s=TM_STREAMS.find(x=>x.key===k);if(!s)return;
+    const wk=document.querySelector('#team-status select[data-tm-week]')?.value||tmCurKey(),w=tmData().weeks;
+    w[wk]=w[wk]||{};w[wk][k]=w[wk][k]||{};w[wk][k][sub]=w[wk][k][sub]||{};
+    if(t.value==='')delete w[wk][k][sub]['d'+d];else{const v=Math.max(0,Math.round(Number(t.value))||0);w[wk][k][sub]['d'+d]=v;t.value=v;}
+    tmRecalc(s);
+  }else if(t.dataset.tmReq!==undefined){
+    const[k,sub]=t.dataset.tmReq.split('|'),s=TM_STREAMS.find(x=>x.key===k);if(!s)return;
+    const v=Math.max(0,Math.round(Number(t.value))||0);t.value=v;
+    const r=tmData().required;r[k]=r[k]||{};r[k][sub]=v;tmRecalc(s);
+  }
+});
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-tm-add],[data-tm-del]');if(!t||!unlocked)return;
+  if(t.dataset.tmAdd!==undefined){
+    const k=t.dataset.tmAdd,s=TM_STREAMS.find(x=>x.key===k),inp=document.getElementById('tm-new-'+k);
+    const name=(inp.value||'').replace(/[.#$\[\]\/|]/g,'').trim();
+    if(!s||!name)return;
+    if(tmSubs(s).some(x=>x.toLowerCase()===name.toLowerCase())){inp.value='';return;}
+    const ex=toArr(tmData().extra[k]);ex.push(name);tmData().extra[k]=ex;renderTeams();
+  }else if(t.dataset.tmDel!==undefined){
+    const[k,sub]=t.dataset.tmDel.split('|');
+    tmData().extra[k]=toArr(tmData().extra[k]).filter(x=>x!==sub);renderTeams();
+  }
+});
+// ═══ end Weekly Team Deployment ═══
 
 renderAll();
 </script>
