@@ -1343,7 +1343,7 @@ function renderPSSummary(){
     return `<article class="card"><div class="card-head"><h3>${title}</h3><span class="note">${note}</span></div><div class="card-body"><div class="ps-big"><b>${percent(t['Approved'],total)}</b><span>approved · ${t['Approved']} of ${total}</span></div><div class="ps-stack">${seg}</div><div class="ps-chips">${chips}</div></div></article>`;
   };
   document.getElementById('ps-summary').innerHTML=
-    `<article class="card ps-scope"><div class="card-head"><h3>Links Tracked</h3></div><div class="card-body"><div class="num">${rows.length} <small>/ ${scope}</small></div><div class="sub">NE25 MW links in this tracker vs total link list</div><div class="bar"><span style="width:${Math.min(100,pct(rows.length,scope))}%"></span></div><div class="sub" style="margin-top:10px">${notAdded} links not yet added</div></div></article>`+
+    `<article class="card ps-scope"><div class="card-head"><h3>Links Tracked</h3></div><div class="card-body"><div class="num">${rows.length} <small>/ ${scope}</small></div><div class="sub">NE25 MW links vs total cutover links</div><div class="bar"><span style="width:${Math.min(100,pct(rows.length,scope))}%"></span></div><div class="sub" style="margin-top:10px">${notAdded} links not yet added</div></div></article>`+
     card('PAT Summary','per link',pat,rows.length,'pat',['Approved','Approval Pending','Rejected','Not Submitted'])+
     card('SAR Summary','per link end · Site A + Site B',sar,rows.length*2,'sarAny',['Approved','Submitted','Rejected','Not Submitted']);
   document.getElementById('ps-asof').textContent=`${rows.length} links · ${rows.length*2} SAR link ends`;
